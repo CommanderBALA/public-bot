@@ -20,8 +20,7 @@ bot.commands = new Discord.Collection();
 
 // The message that we will get in terminal when we lunch the bot 
 bot.on('ready', async () =>{
-    console.log(`████████╗███████╗███████╗███████╗████████╗    ██████╗  ██████╗ ████████╗               ██████╗ ███╗   ██╗██╗     ██╗███╗   ██╗███████╗\n ╚══██╔══╝██╔════╝██╔════╝╚══███╔╝╚══██╔══╝    ██╔══██╗██╔═══██╗╚══██╔══╝              ██╔═══██╗████╗  ██║██║     ██║████╗  ██║██╔════╝\n ██║   █████╗  ███████╗  ███╔╝    ██║       ██████╔╝██║   ██║   ██║       █████╗    ██║   ██║██╔██╗ ██║██║     ██║██╔██╗ ██║█████╗\n ██║   ██╔══╝  ╚════██║ ███╔╝     ██║       ██╔══██╗██║   ██║   ██║       ╚════╝    ██║   ██║██║╚██╗██║██║     ██║██║╚██╗██║██╔══╝\n ██║   ███████╗███████║███████╗   ██║       ██████╔╝╚██████╔╝   ██║                 ╚██████╔╝██║ ╚████║███████╗██║██║ ╚████║███████╗\n ╚═╝   ╚══════╝╚══════╝╚══════╝   ╚═╝       ╚═════╝  ╚═════╝    ╚═╝                  ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝╚═╝  ╚═══╝╚══════╝
-                                                                                                                                          `);
+    console.log(`${bot.user.username} online Lett!!!\n Jelenleg ${bot.guilds.cache.size} szerveren vagyok bent!\n ... még ${100-bot.guilds.cache.size} szerver kell hogy elérjem a 100-at`);
 
     //This will be status of our bot
     bot.user.setActivity("Tesztelés...", {type: "COMPETING"});
