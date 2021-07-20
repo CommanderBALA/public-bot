@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args, prefix) => {
     // create an embed
     const embed = new discord.MessageEmbed()
     .setColor("RANDOM") // the color of the embed 
-    .setDescription(`React with ✅ to get the role ${reactRole}`) // desc of the embed
+    .setDescription(`Reagálj a ✅ -val hogy megkapd a(z) ${reactRole} rangot!`) // desc of the embed
 
     // send the embed.
     let msg = await message.channel.send(embed)

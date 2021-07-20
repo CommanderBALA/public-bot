@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args, prefix) => {
         channel.delete()
 
         // sending a msg in the new channel
-        channel2.send(`Nuked this channel`).then(
+        channel2.send(`A csatorna sikeresen nukeolva lett!`).then(
           
             // sends a GIF in the new channel
             channel2.send(`https://tenor.com/view/explosion-explode-clouds-of-smoke-gif-17216934`)

@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args, prefix) => {
             })
             .then(() => {
             // it will send this message once the person is banned
-              message.reply(`Successfully banned`);
+              message.reply(`Sikeres bannolás!`);
             })
             // log err in the console
             .catch(err => {
