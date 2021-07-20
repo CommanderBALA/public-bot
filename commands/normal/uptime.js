@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args, prefix) => {
     let seconds = Math.floor(totalSeconds % 60);
     let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.tag, message.author.avatarURL())
-      .setColor("RANDOM")
+      .setColor("GREEN")
       .setTitle(`Online`)
       .addField(`Nap:`, `${days}`, true)
       .addField(`Óra:`, hours, true)
