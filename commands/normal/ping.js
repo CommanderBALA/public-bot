@@ -5,9 +5,9 @@ module.exports.run = async (bot, message, args, prefix) => { // for the cmd hand
 
     if(!message.content.startsWith(prefix)) return; // makes sure it starts with the prefix
 
-    message.channel.send(`Finding the bot ping...`).then(msg => { // sends this once you send the cmd
+    message.channel.send(`Ping lekérdezése...`).then(msg => { // sends this once you send the cmd
         const ping = msg.createdTimestamp - message.createdTimestamp; // calculation the time between when u send the message and when the bot reply
-        msg.edit(`The Ping of the bot is ${ping}ms!`) // it will edit the msg to this after it gets the ping!
+        msg.edit(`A bot pingje, **${ping}**ms!`) // it will edit the msg to this after it gets the ping!
     })
 }
 

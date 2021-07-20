@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args, prefix) => {
     // the perm. that the member need it to ban someone
     if(!message.member.hasPermission('BAN_MEMBERS', 'ADMINISTRATOR'))
     // if someone dont hv perm it will send this message
-    message.channel.send("You don't have permission to use that command.");
+    message.channel.send("Nincs megfelelő jogosultságod a parancs használatához");
 
     else {
       if (!message.guild) return;

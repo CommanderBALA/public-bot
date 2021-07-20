@@ -14,6 +14,7 @@ const fs = require('fs')
 const xpfile = require('./xp.json');
 const { dir } = require('console');
 const prefix = ('-');
+const dontpermission = (':x: Nincs megfelelő jogosultságod a parancs használatához! :x:');
 
 bot.aliases = new Discord.Collection();
 bot.commands = new Discord.Collection();
@@ -41,7 +42,7 @@ bot.on("message", async message =>{
     let args = messageArray.slice(1);
 
     let commands = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
-    if (commands) commands.run(bot, message, args, prefix)
+    if (commands) commands.run(bot, message, args, prefix, dontpermission)
 
     if (cmd === `${prefix}version`) {
         return message.channel.send(`A bot jelenlegi verziója: **${config.version}**.`);

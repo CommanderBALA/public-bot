@@ -5,9 +5,7 @@ module.exports.run = async (Client, message, args, prefix) => {
 
      // check if the person has perm.
      if (!message.member.permissions.has("MANAGE_MESSAGES", "ADMINSTRATOR")) // sets the perm.
-     return message.channel.send(
-         `You do not have correct permissions to do this action, ${message.author.username}` // return this msg if the user dont hv perm
-     );
+     return message.channel.send(`You do not have correct permissions to do this action, ${message.author.username}`);
 
  // if he didnt say how much msgs he wanna delete (e.g. =clear )
  if (!args[0]) {

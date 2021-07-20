@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args, prefix) => {
     
     if(!message.content.startsWith(prefix)) return;
 
-    message.channel.send(`hello my brother`)
+    message.channel.send(`Henló Henló emberek!`)
 }
 
 module.exports.help = {

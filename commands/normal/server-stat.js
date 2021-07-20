@@ -4,7 +4,6 @@ const Discord = require('discord.js');
 module.exports.run = async (bot, message, args, prefix) => {
     if(!message.content.startsWith(prefix)) return;
 
-    if (message.content.startsWith('HQ-bott')) {
         message.delete();
         const embed = new Discord.MessageEmbed()
       .setThumbnail()
@@ -94,13 +93,10 @@ module.exports.run = async (bot, message, args, prefix) => {
       )
       .setFooter(`${bot.user.username}`, bot.user.displayAvatarURL())
       .setTimestamp();
-      message.channel.send(embed)
+      message.channel.send(embed);
+
       }
       
-        
-
-    
-}
 
 module.exports.help = {
     name: 'serverstat',

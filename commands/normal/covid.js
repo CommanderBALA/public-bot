@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args, prefix) => {
         const noArgs = new Discord.MessageEmbed()
         .setTitle('Invalid Command Usage')
         .setColor('RED')
-        .setDescription('You Can Try Using **-covid all** or **-covid** ***[countries]***')
+        .setDescription('Helytelen parancshasználat. Használd a **-covid all** vagy a **-covid** ***[országnév(angolul)]***')
 		// sends the noArgs embed
         if(!args[0]) return message.channel.send(noArgs);
 
@@ -33,10 +33,10 @@ module.exports.run = async (bot, message, args, prefix) => {
 
                 // making the covid embed with the world stats
                 const embed = new Discord.MessageEmbed()
-                .setTitle(`Worldwide COVID-19 Stats 🌎`)
+                .setTitle(`Covid-19 összesített adatok - *Egész világ* 🌎`)
                 .addField('Confirmed Cases', confirmed)
                 .addField('Recovered', recovered)
-                .addField('Deaths', deaths)
+                .addField('Haláleset: ', deaths)
 
                 message.channel.send(embed)
             })
@@ -55,15 +55,15 @@ module.exports.run = async (bot, message, args, prefix) => {
 
                 // making a embed with the info of the country that you choosed
                 const embed = new Discord.MessageEmbed()
-                .setTitle(`COVID-19 Stats for **${countries}**`)
+                .setTitle(`Covid-19 összesített adatok - **${countries}**`)
                 .addField('Confirmed Cases', confirmed)
                 .addField('Recovered', recovered)
-                .addField('Deaths', deaths)
+                .addField('Haláleset: ', deaths)
 
                 message.channel.send(embed)
             }).catch(e => {
                 // if he can't find the country that u said it will send this message
-                return message.channel.send('Invalid country provided')
+                return message.channel.send('Nem találtam ilyen országot')
             })
         }
     }
