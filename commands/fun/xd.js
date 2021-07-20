@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = async (bot, message, args, prefix) => {
-
+    message.delete();
     message.channel.send({
         files: [
           "https://media.discordapp.net/attachments/718871359102517279/727633735981334638/720650612747796499.gif",
