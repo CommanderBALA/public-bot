@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = async (bot, message, args, prefix) => {
-    message.channel.send(`${args[0].member.user.avatarURL()}`)
+    message.channel.send(`${args[0].user.avatarURL()}`)
 
 }
 
