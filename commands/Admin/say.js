@@ -8,7 +8,7 @@ module.exports.run = async (Client, message, args, prefix) => { // for my cmd ha
 
     // only people with this perm can use this cmd
         if(!message.member.hasPermission('MANAGE_MESSAGES')) return; 
-    if (message.content.toLowerCase() === '=say'){ // if the msg is  = to _say
+    if (message.content.toLowerCase() === '-say'){ // if the msg is  = to _say
         let filter = m => m.author.id === message.author.id; // filtering the person who send the msg
         let q1 = new Discord.MessageCollector(message.channel, filter, { // it will send q1 in the same channel
             max: 1
