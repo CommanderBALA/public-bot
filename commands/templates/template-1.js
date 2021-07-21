@@ -54,12 +54,12 @@ if (!message.member.hasPermission("ADMINISTRATOR"))
         })
         .then(channel => {
           let category = message.guild.channels.cache.find(
-            c => c.name == "➤ Információk" && c.type == "category"
+            c => c.name == "》📰 Információk 📰《" && c.type == "category"
           );
           channel.setParent(category.id);
         });
       message.guild.channels
-        .create(`》🙋♂-partnerek-🙋♂《`, {
+        .create(`》🙋-partnerek-🙋《`, {
           type: "text"
         })
         .then(channel => {
@@ -110,7 +110,7 @@ if (!message.member.hasPermission("ADMINISTRATOR"))
       }, 1000);
       setTimeout(function() {
         message.guild.channels
-          .create(`》🗺-képek-mémek-🐵《`, {
+          .create(`》🐵-képek-mémek-🐵《`, {
             type: "text"
           })
           .then(channel => {
