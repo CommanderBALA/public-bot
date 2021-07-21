@@ -36,6 +36,11 @@ module.exports.run = async (bot, message, args, prefix) => {
             name: '-botinfó',
             value: 'általános infók a botról',
             inline: true
+        },
+        {
+            name: '-botinvite',
+            value: 'Ezzel a linkkel tudod behívni a botot a szerveredre',
+            inline: true
         })
         .addField('-----\nEgyéb command', 'minden is!')
         .addFields({
