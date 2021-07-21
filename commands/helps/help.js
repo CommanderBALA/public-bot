@@ -62,6 +62,11 @@ module.exports.run = async (bot, message, args, prefix) => {
             name: '-serverstat',
             value: 'általános információk a szerverről',
             inline: true
+        },
+        {
+            name: '-userinfo [@valaki]',
+            value: 'A megpingelt emberről infókat ír ki',
+            inline: true
         })
         .addField('-----\nFun parancsok', 'minden ami vicces XD')
         .addFields({
