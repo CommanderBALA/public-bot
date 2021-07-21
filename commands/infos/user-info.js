@@ -49,8 +49,8 @@ module.exports.run = async (Client, message, args, prefix) => {
      .addField(`**Avatar: **`, `[Click here to view Avatar](${mentionedMember.user.displayAvatarURL({ dynamic: true})})`) // show the person avatar in a link
      .addField(`**Status: **`, `${status}`) // the status of the user
      .addField(`**Game: **`, `${game || 'None'}`) // what is he playing
-     .addField(`**Account Created At: **`, `${moment(mentionedMember.createdAt).format("YYYY-MM-DD [at] HH:mm")}`) // when did the acc got created
-     .addField(`**Joined The Server At: **`, `${moment(mentionedMember.joinedAt).format("YYYY-MM-DD [at] HH:mm")}`) // when did he join the server
+     .addField(`**Account Created At: **`, `${moment(mentionedMember.createdAt).format("YYYY-MM-DD [-] HH:mm")}`) // when did the acc got created
+     .addField(`**Joined The Server At: **`, `${moment(mentionedMember.joinedAt).format("YYYY-MM-DD [-] HH:mm")}`) // when did he join the server
      .addField(`**Roles: [${roles.length}]**`, `${displayRoles}`)  // display his roles
     message.channel.send(userEmbed) // sends the embed
     
