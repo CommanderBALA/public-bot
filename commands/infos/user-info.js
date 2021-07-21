@@ -57,6 +57,6 @@ module.exports.run = async (Client, message, args, prefix) => {
 }
 
 module.exports.help = {
-    name: "user",
-    aliases: ["who", 'whois']
+    name: "userinfo",
+    aliases: ["useri", 'userinf']
 }
