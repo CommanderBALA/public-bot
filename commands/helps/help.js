@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args, prefix) => {
             value: 'Moderátor parancs segítségek',
             inline: true
         })
-        .addField('Botinfók', 'infók a botról minden mennyiségben')
+        .addField('-----\nBotinfók', 'infók a botról minden mennyiségben')
         .addFields({
             name: "-ping",
             value: 'A bot pingje',
@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args, prefix) => {
             value: 'általános infók a botról',
             inline: true
         })
-        .addField('Egyéb command', 'minden is!')
+        .addField('-----\nEgyéb command', 'minden is!')
         .addFields({
             name: '-covid [all/ország neve]',
             value: 'megmutatja az összesített covid adatokat',
@@ -58,7 +58,7 @@ module.exports.run = async (bot, message, args, prefix) => {
             value: 'általános információk a szerverről',
             inline: true
         })
-        .addField('Fun parancsok', 'minden ami vicces XD')
+        .addField('-----\nFun parancsok', 'minden ami vicces XD')
         .addFields({
             name: '-xd',
             value: 'csak írd be XDDD',
