@@ -64,7 +64,10 @@ module.exports.run = async (bot, message, args, prefix) => {
             value: 'csak írd be XDDD',
             inline: true
         })
+        .setFooter(bot.user.username, bot.user.avatarURL)
+        .setTimestamp()
 
+        message.channel.send(helpembed);
 }
 
 module.exports.help = {
