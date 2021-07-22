@@ -11,9 +11,10 @@ const bot = new Discord.Client({disableEveryone: true});
 
 const fs = require('fs')
 
+const db = require('quick.db')
+
 const xpfile = require('./xp.json');
 const { dir } = require('console');
-const prefix = ('-');
 const dontpermission = (':x: Nincs megfelelő jogosultságod a parancs használatához! :x:');
 
 bot.aliases = new Discord.Collection();
@@ -33,10 +34,17 @@ bot.on("guildMemberAdd", member =>{
     welcomeChannel.send(`Welcome ${member}`)
 })
 
-bot.on("message", async message =>{
+bot.on("message", async (message, guild) =>{
     if(message.author.bot || message.channel.type === "dm") return;
 
-    let prefix = config.prefix;
+    let prefix;
+
+    let prefixes = await db.fetch(`prefix_${message.guild.id}`)
+    if(prefixes == null){
+        prefix = "-"
+    } else {
+        prefix = prefixes;
+    }
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
