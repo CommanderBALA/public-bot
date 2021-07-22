@@ -14,7 +14,6 @@ const db = require('quick.db');
 
 const prefix = ('-')
 
-const xpfile = require('./xp.json');
 const { dir } = require('console');
 const dontpermission = (':x: Nincs megfelelő jogosultságod a parancs használatához! :x:');
 
