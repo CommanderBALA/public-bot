@@ -110,7 +110,7 @@ bot.on("guildCreate", guild => {
 
 
 // Login to Discord whit your app's Token
-bot.login(config.token);
+bot.login(process.env.token);
 
 
 bot.on('message', message => {
