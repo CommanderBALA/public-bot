@@ -189,7 +189,7 @@ if (!message.member.hasPermission("ADMINISTRATOR"))
       message.author.send(
         `:white_check_mark: A template sikeresen betöltve, jó szórakozást, ha roletemplate is kellene, használd a **${prefix}roletemplate1** parancsot!\n :exclamation: Figyelem! Sok template generálás után csatornák beragadhatnak, amit nem lehet kitörölni, se manuálisan, se bottal! Ezek a csatornák egy idő után törlődnek!`
       );
-    }
+    };
   }
 
   module.exports.help = {
