@@ -52,11 +52,11 @@ bot.on("message", async (message, guild) =>{
     let commands = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
     if (commands) commands.run(bot, message, args, prefix, dontpermission)
 
-    if (cmd === `${prefix}version`) {
+    if (cmd === `-version`) {
         return message.channel.send(`A bot jelenlegi verziója: **${config.version}**.`);
     }
 
-    if (cmd === `${prefix}kezdés`) {
+    if (cmd === `-kezdés`) {
         return message.channel.send(`A bot programozásának kezdésének időpontja: **${config['Edit start']}**.`)
     }
 
@@ -99,7 +99,7 @@ bot.on("message", function(message){
         if(err) console.log("HIBA!!!!!"+ err)
     })
 
-    if (message.content.startsWith(`${prefix}level`)) {
+    if (message.content.startsWith(`-level`)) {
         let user = message.mentions.users.first() || message.author
 
         let embed = new Discord.MessageEmbed()
@@ -154,7 +154,7 @@ fs.readdirSync('./commands/').forEach(dir => {
 
 bot.on("guildCreate", guild => {
     guild.owner.send(
-      `Szia! Köszönöm, hogy behívtál a szerveredre!🙏\nA te szervereddel együtt már **${bot.guilds.cache.size}** szerveren vagyok bent!\nParancsaimahoz megtekintéséhez használd a **szervereden** a *${prefix}help* parancsot.\nHa szeretnél értesülni legújabb fejlesztéseinkről, leállásokról, gyere a developer (szerverre)[https://discord.gg/6STmYNGb6K]`
+      `Szia! Köszönöm, hogy behívtál a szerveredre!🙏\nA te szervereddel együtt már **${bot.guilds.cache.size}** szerveren vagyok bent!\nParancsaimahoz megtekintéséhez használd a **szervereden** a *-help* parancsot.\nHa szeretnél értesülni legújabb fejlesztéseinkről, leállásokról, gyere a developer (szerverre)[https://discord.gg/6STmYNGb6K]`
     );
   });
 
@@ -164,7 +164,7 @@ bot.login(config.token);
 
 
 bot.on('message', message => {
-if (message.content.startsWith(`${prefix}serverstat`)) {
+if (message.content.startsWith(`-serverstat`)) {
     message.delete();
     const embed = new Discord.MessageEmbed()
   .setThumbnail()
