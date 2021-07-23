@@ -10,10 +10,10 @@ module.exports.run = async (Client, message, args, prefix) => {
     var game = mentionedMember.presence.game;
     var status = mentionedMember.presence.status;
      
-    if(status == 'dnd') status = "Do Not Disturb"
+    if(status == 'dnd') status = "Ne zavarjanak"
     if(status == 'online') status = "Online"
     if(status == 'offline') status = "Offline"
-    if(status === 'idle') status = "Idle"
+    if(status === 'idle') status = "Távol"
 
     const roles = mentionedMember.roles.cache
     .sort((a, b) => b.position - a.position)
@@ -24,7 +24,7 @@ module.exports.run = async (Client, message, args, prefix) => {
 
     if(roles.length < 20) {
         displayRoles = roles.join(' ')
-        if(roles.length < 1) displayRoles = "None"
+        if(roles.length < 1) displayRoles = "Nincsenek rangok"
 
     } else {
         displayRoles = roles.slice(20).join(' ')
