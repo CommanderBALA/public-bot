@@ -5,7 +5,7 @@ module.exports.run = async (Client, message, args, prefix) => {
     if(!message.content.startsWith(prefix)) return;
 
     // if the member don't have this perm return by sending this msg
-    if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('You dont have the perms for the nuke command')
+    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('You dont have the perms for the nuke command')
 
     // getting the channel's id that is gonna be nuked
     var channel = Client.channels.cache.get(message.channel.id)
