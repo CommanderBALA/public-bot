@@ -6,7 +6,7 @@ module.exports.run = async (Client, message, args, prefix) => {
 
     const categoryID = message.member.guild.channels.cache.find(c => c.name == "TICKETS")
 
-    if(!categoryID) return message.channel.send('Nem találok TICKET -nevű kategóriát :( ')
+    if(!categoryID) return message.channel.send('Nem találok TICKETS -nevű kategóriát :( ')
 
     var userName = message.author.username;
     
@@ -47,10 +47,11 @@ module.exports.run = async (Client, message, args, prefix) => {
                     });
 
                     var ticketEmbed = new discord.MessageEmbed()
-                    .setTitle(`Köszöntelek a ticketben ${message.author.username}, **(@everyone)**`)
+                    .setTitle(`Köszöntelek a ticketben ${message.author.username}`)
                     .setDescription(`Írd ide üzenetedet vagy kérdésedet`)
                     .setTimestamp()
                     settedParent.send(ticketEmbed)
+                    settedParent.send('**(@everyone)**')
                 }
             ).catch(err => {
                 return console.log(err)
