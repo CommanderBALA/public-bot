@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 
 module.exports.run = async (bot, message, args, prefix) =>{
     message.delete();
-    await message.channel.send('A **TICKET** kategória sikeresen létrehozva!').then(msg=>msg.delete({timeout: "2000"}))
+    await message.channel.send('A **TICKETS** kategória sikeresen létrehozva!').then(msg=>msg.delete({timeout: "2000"}))
     setTimeout(function() {
-        message.guild.channels.create("TICKET", {
+        message.guild.channels.create("TICKETS", {
           type: "category"
         });
       }, 1000);
