@@ -19,11 +19,13 @@ const embed = new Discord.MessageEmbed;
       if(sum == 1){
         embed.addField("Gratulálunk! Kipörgetted a nyarő számot!!!");
         message.author.send(`Itt a kód amit be tudsz váltani: ${szám1}${szám2}${szám3}${szám4}${szám5}`, )
-        let csatorna = message.guild.channels.cache.find(channel => channel.name === 'nyerő-kódok-185329')
+        const nycsatid = "868189061859393567";
+        const nycsat = Client.channels.cache.find(
+            channel => channel.id == `${nycsatid}`);
         let nyszám = new Discord.MessageEmbed()
         .setTitle(`Új nyerő kód készült: ${szám1}${szám2}${szám3}${szám4}${szám5}`)
         .setTimestamp();
-        csatorna.send(nyszám)
+        nycsat.send(nyszám)
     } else { 
         embed.addField("Sajnos nem sikerült :(", "Próbáld újra...");
         }
