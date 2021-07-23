@@ -10,7 +10,7 @@ Client.commands = new Discord.Collection();
 Client.on("guildMemberAdd", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'cool')
     welcomeChannel.send (`Welcome! ${member}`)
-}W
+}
 
 // Bye Message
 Client.on("guildMemberRemove", member => {
