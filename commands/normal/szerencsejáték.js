@@ -17,7 +17,6 @@ const embed = new Discord.MessageEmbed;
       embed.addField("Szerencsejáték", "A kipörgetett számod: " +sum);
 
       if(sum == 1){
-        embed.addField("Gratulálunk! Kipörgetted a nyarő számot!!!");
         message.author.send(`Itt a kód amit be tudsz váltani: ${szám1}${szám2}${szám3}${szám4}${szám5}`, )
         const nycsatid = "868189061859393567";
         const nycsat = Client.channels.cache.find(
@@ -26,9 +25,12 @@ const embed = new Discord.MessageEmbed;
         .setTitle(`Új nyerő kód készült: ${szám1}${szám2}${szám3}${szám4}${szám5}`)
         .setTimestamp();
         nycsat.send(nyszám)
+    } else  if(sum == 1){
+      embed.addField("Gratulálunk! Kipörgetted a nyarő számot!!!", "Grat!");
+    
     } else { 
         embed.addField("Sajnos nem sikerült :(", "Próbáld újra...");
-        }
+    }
   
       embed.setTimestamp();
       embed.setFooter("Közösségi Képviselő")
