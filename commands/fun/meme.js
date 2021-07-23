@@ -32,7 +32,7 @@ const memeEmbed = new Discord.MessageEmbed() // creating an embed
         memeEmbed.setFooter(`👍 ${memeUpvotes} | 👎 ${memeDownvotes} | 💬 ${memeNumComments}`)
 
         message.channel.send(memeEmbed) // sending the embed
-    })
+    });
 }
 
 
