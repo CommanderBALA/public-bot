@@ -6,7 +6,7 @@ module.exports.run = async (Client, message, args, prefix) => {
 
 
     // the perm. that the member need it to ban someone
-    if(!message.member.hasPermission('KICK_MEMBERS', 'ADMINISTRATOR'))
+    if(!message.member.hasPermission('KICK_MEMBERS'))
     // if someone dont hv perm it will send this message
     message.channel.send("You don't have permission to use that command.");
 
