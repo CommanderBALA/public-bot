@@ -13,6 +13,7 @@ module.exports.run = async (Client, message, args, prefix) => {
     if(!reactRole) return message.channel.send(`Használd: -react [@rang]`)
 
     // create an embed
+    message.delete();
     const embed = new discord.MessageEmbed()
     .setColor("RANDOM") // the color of the embed 
     .setDescription(`Reagálj a ✅ , hogy megkapd a(z) ${reactRole} rangot!`) // desc of the embed
