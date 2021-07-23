@@ -11,8 +11,6 @@ Client.commands = new Discord.Collection();
 // require the fs module
 const fs = require('fs');
 
-// when i type xpfile it will connect to the xp.json file
-const xpfile = require('./xp.json');
 
 //define a prefix
 const prefix = ('-');
@@ -63,7 +61,7 @@ fs.readdirSync('./commands/').forEach(dir => {
 
             // console the loaded cmds 
             var fileGet = require(`./commands/${dir}/${file}`);
-            console.log(`File ${file} was loaded`)
+            console.log(`${file} - ✔️`)
 
             // gonna let the cmds run
             try {
@@ -76,7 +74,7 @@ fs.readdirSync('./commands/').forEach(dir => {
 
             } catch (err) {
               // catch err in console  
-                return console.log(err);
+                return console.log(`${file} - ❌ ,  HIBA ---`+err);
             }
         });
     });
