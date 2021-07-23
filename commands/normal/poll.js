@@ -13,8 +13,8 @@ module.exports.run = async (Client, message, args, prefix) => {
     .setDescription(polldescription) // makeing the descrption that it will be the thing after the embed
     .setColor('YELLOW') // sets the color
     let msgEmbed = await pollChannel.send(embedPoll); // sending the embed in the selected channel
-    await msgEmbed.react('👍') // addding reactions
-    await msgEmbed.react('👎') // same
+    await msgEmbed.react('✔️') // addding reactions
+    await msgEmbed.react('❌') // same
 
 }
 
