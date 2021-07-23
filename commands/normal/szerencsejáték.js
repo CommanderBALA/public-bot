@@ -16,7 +16,7 @@ const embed = new Discord.MessageEmbed;
       embed.setColor("#8B9EB5");
       embed.addField("Szerencsejáték", "A kipörgetett számod: " +sum);
   
-      if(sum == 467){
+      if(sum == 1){
         embed.addField("Gratulálunk! Kipörgetted a nyarő számot!!!");
         message.author.send('Itt a kód amit be tudsz váltani: ', szám1, szám2, szám3, szám4, szám5)
         let csatorna = "868189061859393567"
