@@ -25,7 +25,7 @@ const embed = new Discord.MessageEmbed;
         .setTimestamp();
         csatorna.send(nyszám)
     } else { 
-        embed.addField("Sajnos nem sikerült :(");
+        embed.addField("Sajnos nem sikerült :(", "Próbáld újra...");
         }
   
       embed.setTimestamp();
