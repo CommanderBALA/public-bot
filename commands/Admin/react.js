@@ -4,6 +4,7 @@ module.exports.run = async (Client, message, args, prefix) => {
 
     
     if(!message.content.startsWith(prefix)) return;
+    if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send('You dont have the perms')
 
     // gets the role for the reaction
     let reactRole = message.mentions.roles.first()
