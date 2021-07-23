@@ -25,9 +25,9 @@ const embed = new Discord.MessageEmbed;
         .setTitle(`Új nyerő kód készült: ${szám1}${szám2}${szám3}${szám4}${szám5}`)
         .setTimestamp();
         nycsat.send(nyszám)
-    } else  if(sum == 1){
-      embed.addField("Gratulálunk! Kipörgetted a nyarő számot!!!", "Grat!");
-    
+        if(sum == 1){
+          embed.addField("Gratulálunk! Kipörgetted a nyarő számot!!!", "Grat!");
+    }
     } else { 
         embed.addField("Sajnos nem sikerült :(", "Próbáld újra...");
     }
