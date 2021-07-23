@@ -10,7 +10,7 @@ Client.commands = new Discord.Collection();
 Client.on("guildMemberAdd", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'cool')
     welcomeChannel.send (`Welcome! ${member}`)
-}
+})
 
 // Bye Message
 Client.on("guildMemberRemove", member => {
@@ -50,7 +50,7 @@ fs.readdirSync('./commands/').forEach(dir => {
             }
         });
     });
-});
+})
 
 
 Client.on("ready", async () => {
