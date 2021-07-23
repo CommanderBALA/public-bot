@@ -4,11 +4,11 @@ module.exports.run = async (Client, message, args, prefix) => {
     
     if(!message.content.startsWith(prefix)) return;
 
-    message.channel.send(`hello my brother`)
+    message.channel.send(`Sziasztok!`)
     
 }
 
 module.exports.help = {
     name: `hello`,
-    aliases: ["hey", "hi"]
+    aliases: []
 };

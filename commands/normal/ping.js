@@ -1,17 +1,17 @@
 const discord = require('discord.js');
-const Client = new discord.Client(); // creating a new Client
+const Client = new discord.Client();
 
-module.exports.run = async (Client, message, args, prefix) => { // for the cmd handler 
+module.exports.run = async (Client, message, args, prefix) => {
 
-    if(!message.content.startsWith(prefix)) return; // makes sure it starts with the prefix
+    if(!message.content.startsWith(prefix)) return;
 
-    message.channel.send(`Finding the bot ping...`).then(msg => { // sends this once you send the cmd
-        const ping = msg.createdTimestamp - message.createdTimestamp; // calculation the time between when u send the message and when the bot reply
-        msg.edit(`The Ping of the bot is ${ping}ms!`) // it will edit the msg to this after it gets the ping!
+    message.channel.send(`Ping lekérése...`).then(msg => {
+        const ping = msg.createdTimestamp - message.createdTimestamp;
+        msg.edit(`A bot pingje: **${ping}**ms!`)
     })
 }
 
 module.exports.help = {
-    name: "ping", // name of the cmd
-    aliases: ['ms'] // another names for the cmd
+    name: "ping",
+    aliases: ['ms']
 }
