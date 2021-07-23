@@ -99,7 +99,7 @@ Client.on("ready", async () => {
     console.log(`${Client.user.username} is Online!`)
 
     // This Will be the Status Of our Bot
-    Client.user.setActivity("UltraX", {type: "WATCHING"})
+    Client.user.setActivity("TESZT", {type: "CUSTOM_STATUS"})
 });
 
 
