@@ -6,7 +6,7 @@ module.exports.run = async (Client, message, args, prefix) => {
 
     const categoryID = message.member.guild.channels.cache.find(c => c.name == "TICKETS")
 
-    if(!categoryID) return;
+    if(!categoryID) return message.channel.send('Nem találok TICKET -nevű kategóriát :( ')
 
     var userName = message.author.username;
     
