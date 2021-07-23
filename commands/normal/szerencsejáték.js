@@ -18,10 +18,10 @@ const embed = new Discord.MessageEmbed;
   
       if(sum == 1){
         embed.addField("Gratulálunk! Kipörgetted a nyarő számot!!!");
-        message.author.send('Itt a kód amit be tudsz váltani: ', szám1, szám2, szám3, szám4, szám5)
+        message.author.send(`Itt a kód amit be tudsz váltani: ${szám1}${szám2}${szám3}${szám4}${szám5}`, )
         let csatorna = "868189061859393567"
         let nyszám = new Discord.MessageEmbed()
-        .setTitle('Új nyerő kód készült: ', szám1, szám2, szám3, szám4, szám5)
+        .setTitle(`Új nyerő kód készült: ${szám1},${szám2}${szám3}${szám4}${szám5}`)
         .setTimestamp();
         csatorna.send(nyszám)
     } else { 
