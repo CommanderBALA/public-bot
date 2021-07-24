@@ -13,7 +13,7 @@ module.exports.run = async (Client, message, args, prefix) => {
     .setDescription(polldescription)
     .setColor('YELLOW')
     let msgEmbed = await pollChannel.send(embedPoll);
-    await msgEmbed.react(':white_check_mark:')
+    await msgEmbed.react('✅')
     await msgEmbed.react('❌')
 
 }
