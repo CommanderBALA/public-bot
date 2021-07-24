@@ -3,11 +3,11 @@ const moment = require(`moment`)
 
 
 const verificationLevels = {
-    NONE: 'None',
-    LOW: 'Low',
-    MEDIUM: 'Medium',
-    HIGH: 'High',
-    VERY_HIGHT: 'Very High'
+    NONE: 'Nincs',
+    LOW: 'Alacsony',
+    MEDIUM: 'Közepes',
+    HIGH: 'Magas',
+    VERY_HIGHT: 'Magasabb'
 }
 
 const regions = {
@@ -17,7 +17,7 @@ const regions = {
     india: 'India',
     japan: 'Japán',
     russia: 'Oroszország',
-    singapore: 'Singapúr',
+    singapore: 'Szingapúr',
     southafrica: 'South Africa',
     sydeny: 'Sydeny',
     'us-central': 'Közép-Amerika',
@@ -65,7 +65,7 @@ module.exports.run = async (Client, message, args, prefix) => {
         `**Tulajdonos:** ${message.guild.owner.user.tag}`,
         `**Régió:** ${regions[message.guild.region]}`,
         `**Boostok száma:** ${message.guild.premiumTier ? `Tier ${message.guild.premiumTier}` : 'Nincsenek boostok'}`,
-        `**Verification Level:** ${verificationLevels[message.guild.verificationLevel]}`,
+        `**Moderáció:** ${verificationLevels[message.guild.verificationLevel]}`,
         `**Boost szint:** ${message.guild.premiumSubscriptionCount || '0'}`,
         `**Szerver készítése:** ${moment(message.guild.createdTimestamp).format('LT')} ${moment(message.guild.createdTimestamp).format('LL')} ${moment(message.guild.createdTimestamp).fromNow()}`,
         '\u200b'
