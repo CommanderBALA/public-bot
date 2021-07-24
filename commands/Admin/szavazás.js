@@ -3,6 +3,7 @@ const discord = require('discord.js')
 module.exports.run = async (Client, message, args, prefix) => {
         
     if(!message.content.startsWith(prefix)) return;
+    if(!message.member.hasPermission("MANAGE_MESSAGE")) return message.reply('Nem kezdeményezhetsz szavazást!').then(msg => msg.delete({timeout: "2000"}));
 
     let pollChannel = message.mentions.channels.first()
     if(!pollChannel) return message.channel.send('Használd: **-szavazás [#csatorna] [szöveg]**'); 
