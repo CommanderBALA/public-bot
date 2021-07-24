@@ -15,8 +15,6 @@ module.exports.run = async (Client, message, args, prefix) => {
         .setDescription('Használd: **-covid all** vagy **-covid [ország név angolul]**')
         if(!args[0]) return message.channel.send(noArgs);
 
-
-		
         if(args[0] === "all"){
             fetch(`https://covid19.mathdro.id/api`)
             .then(response => response.json())
@@ -27,8 +25,8 @@ module.exports.run = async (Client, message, args, prefix) => {
 
                 const embed = new Discord.MessageEmbed()
                 .setTitle(`Worldwide COVID-19 Stats 🌎`)
-                .addField('Confirmed Cases', confirmed)
-                .addField('Recovered', recovered)
+                .addField('Meggyógyultak: ', confirmed)
+                .addField('Meggyógyultak: ', recovered)
                 .addField('Halálok: ', deaths)
 
                 message.channel.send(embed)
@@ -44,13 +42,13 @@ module.exports.run = async (Client, message, args, prefix) => {
 
                 const embed = new Discord.MessageEmbed()
                 .setTitle(`COVID-19 Stats for **${countries}**`)
-                .addField('Confirmed Cases', confirmed)
-                .addField('Recovered', recovered)
+                .addField('Meggyógyultak: ', confirmed)
+                .addField('Meggyógyultak: ', recovered)
                 .addField('Halálok: ', deaths)
 
                 message.channel.send(embed)
             }).catch(e => {
-                return message.channel.send('Invalid country provided')
+                return message.channel.send('Érvénytelen országnév!')
             })
         }
     }
