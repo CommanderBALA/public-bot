@@ -4,10 +4,7 @@ module.exports.run = async (Client, message, args, prefix) => {
      if(!message.content.startsWith(prefix)) return;
 
      // check if the person has perm.
-     if (!message.member.permissions.has("MANAGE_MESSAGES")) // sets the perm.
-     return message.channel.send(
-         `You do not have correct permissions to do this action, ${message.author.username}` // return this msg if the user dont hv perm
-     );
+     if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.reply('Nem törölhetsz üzeneteket!').then(msg => msg.delete({timeout: "2000"}));
 
  // if he didnt say how much msgs he wanna delete (e.g. =clear )
  if (!args[0]) {

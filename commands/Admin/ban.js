@@ -5,10 +5,7 @@ module.exports.run = async (Client, message, args, prefix) => {
   if(!message.content.startsWith(prefix)) return;
 
 
-    // the perm. that the member need it to ban someone
-    if(!message.member.hasPermission('BAN_MEMBERS'))
-    // if someone dont hv perm it will send this message
-    message.channel.send("You don't have permission to use that command.");
+    if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply('Nem bannolhatsz embereket!').then(msg => msg.delete({timeout: "2000"}));
 
     else {
       if (!message.guild) return;
@@ -23,29 +20,22 @@ module.exports.run = async (Client, message, args, prefix) => {
   
           member
 
-          // banning code 
             .ban({
-                // the reason
-              reason: 'They were bad!',
+              reason: `Ki lett bannolva a szerverről ${message.author.name} által!`,
             })
             .then(() => {
-            // it will send this message once the person is banned
-              message.reply(`Successfully banned`);
+              message.reply(`Sikeres bannolás!`);
             })
-            // log err in the console
             .catch(err => {
-              // if the bot wasnt able to ban the member bcz he hv a higher role it will not ban him and if the bot dont hv to perm it will not ban him and send this messge
-              message.reply('I was unable to ban the member');
+              message.reply('Nem tudom kitiltani a felhasználót (indokok: magasabb a rangja mint a botnak, rendszergazda jogosultsága van, ő a tulajdonos, stb...)');
   
               console.error(err);
             });
         } else {
-          // if the member isnt in the server and u typed e.g. =ban @karimx it will send this message
-          message.reply("That user isn't in this guild!");
+          message.reply("Nem találok ilyen felhasználót a szerveren");
         }
       } else {
-       // if u typed =ban without mentioning some1 it will send this message
-        message.reply("You didn't mention the user to ban!");
+        message.reply("Nincs említve felhasználó!");
       }
   };
 }
