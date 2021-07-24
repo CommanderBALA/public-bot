@@ -24,7 +24,7 @@ module.exports.run = async (Client, message, args, prefix) => {
                 let deaths = data.deaths.value.toLocaleString()
 
                 const embed = new Discord.MessageEmbed()
-                .setTitle(`Worldwide COVID-19 Stats 🌎`)
+                .setTitle(`COVID-19 világi adatok 🌎`)
                 .addField('Fertőzöttek: ', confirmed)
                 .addField('Meggyógyultak: ', recovered)
                 .addField('Halálok: ', deaths)
@@ -43,7 +43,7 @@ module.exports.run = async (Client, message, args, prefix) => {
                 let deaths = data.deaths.value.toLocaleString()
 
                 const embed = new Discord.MessageEmbed()
-                .setTitle(`COVID-19 Stats for **${countries}**`)
+                .setTitle(`COVID-19 adatok: **${countries}**`)
                 .addField('Fertőzöttek: ', confirmed)
                 .addField('Meggyógyultak: ', recovered)
                 .addField('Halálok: ', deaths)
