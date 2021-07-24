@@ -57,7 +57,7 @@ module.exports.run = async (Client, message, args, prefix) => {
     
     .setTitle(`Szerverinfó: ${name}`)
     
-    .setImage(message.guild.iconURL())
+    .setThumbnail(message.guild.iconURL())
     
     .addField(`General`, [
         `**Név:** ${name}`,
