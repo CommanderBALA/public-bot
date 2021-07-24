@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 
 module.exports.run = async (bot, message, args, prefix) =>{
     message.delete();
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply('Nincs jogosultságod hogy setupold a ticket-et!').then(msg => message.bulk)
     await message.channel.send('A **TICKETS** kategória sikeresen létrehozva! ✅ ').then(msg=>msg.delete({timeout: "3000"}))
     await message.author.send(`A **TICKETS** kategória sikeresen létrehozva! ✅ *(Szerver: {message.guild.name})* `)
     setTimeout(function() {
@@ -22,8 +23,11 @@ module.exports.run = async (bot, message, args, prefix) =>{
                       VIEW_CHANNEL: true
                   });
                   var ticketEmbed = new discord.MessageEmbed()
-                  .setTitle(`Köszöntelek a ticketben ${message.author.username}`)
-                  .setDescription(`Írd ide üzenetedet vagy kérdésedet`)
+                  .setTitle(`TICKET-INFORMÁCIÓK`)
+                  .setColor("RED")
+                  .setDescription(`Ticketet csak abban az esetben nyiss ha szükségedd van rá. A felesleges ticket nyitását a vezetőség jutalmazza. Használjátok normálisan...`)
+                  .addField('Ticket nyitás parancs:', `${prefix}ticket`)
+                  .addField('Ticket zárás parancs:', `${prefix}close`)
                   .setTimestamp()
                   settedParent.send(ticketEmbed)
                   settedParent.send('**(@everyone)**')
@@ -37,12 +41,12 @@ module.exports.run = async (bot, message, args, prefix) =>{
                           SEND_MESSAGES: false,
                           VIEW_CHANNEL: false
                       });
-                      var ticketEmbed = new discord.MessageEmbed()
+                      var ticketEmbed2 = new discord.MessageEmbed()
                       .setTitle(`Ticket-log`)
                       .setDescription(`A bot ide fogja logolni a ticketek nyitását és zárását! Amennyiben nincs szükséged erre a csatornára nyugodtan törölheted.`)
                       .setColor("ORANGE")
                       .setTimestamp()
-                      settedParent.send(ticketEmbed)
+                      settedParent.send(ticketEmbed2)
                       settedParent.send('**(@everyone)**')
                   })
             })                              
