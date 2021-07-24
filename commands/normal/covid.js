@@ -28,6 +28,7 @@ module.exports.run = async (Client, message, args, prefix) => {
                 .addField('Fertőzöttek: ', confirmed)
                 .addField('Meggyógyultak: ', recovered)
                 .addField('Halálok: ', deaths)
+                .setThumbnail('https://cdn.discordapp.com/attachments/867118031234138132/868442324185788476/coronavirus-COVID-19-WHO-Europe_250x.png')
                 .setTimestamp()
 
                 message.channel.send(embed)
@@ -46,6 +47,7 @@ module.exports.run = async (Client, message, args, prefix) => {
                 .addField('Fertőzöttek: ', confirmed)
                 .addField('Meggyógyultak: ', recovered)
                 .addField('Halálok: ', deaths)
+                .setThumbnail('https://cdn.discordapp.com/attachments/867118031234138132/868442324185788476/coronavirus-COVID-19-WHO-Europe_250x.png')
                 .setTimestamp()
 
                 message.channel.send(embed)
