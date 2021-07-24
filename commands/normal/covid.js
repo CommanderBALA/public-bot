@@ -25,9 +25,10 @@ module.exports.run = async (Client, message, args, prefix) => {
 
                 const embed = new Discord.MessageEmbed()
                 .setTitle(`Worldwide COVID-19 Stats 🌎`)
-                .addField('Meggyógyultak: ', confirmed)
+                .addField('Fertőzöttek: ', confirmed)
                 .addField('Meggyógyultak: ', recovered)
                 .addField('Halálok: ', deaths)
+                .setTimestamp()
 
                 message.channel.send(embed)
             })
@@ -42,9 +43,10 @@ module.exports.run = async (Client, message, args, prefix) => {
 
                 const embed = new Discord.MessageEmbed()
                 .setTitle(`COVID-19 Stats for **${countries}**`)
-                .addField('Meggyógyultak: ', confirmed)
+                .addField('Fertőzöttek: ', confirmed)
                 .addField('Meggyógyultak: ', recovered)
                 .addField('Halálok: ', deaths)
+                .setTimestamp()
 
                 message.channel.send(embed)
             }).catch(e => {
