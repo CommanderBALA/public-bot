@@ -5,7 +5,7 @@ module.exports.run = async (Client, message, args, prefix) => {
 
     if(!message.content.startsWith(prefix)) return;
 
-    let mentionedMember = message.mentions.members.first() || message.member;
+    let mentionedMember = message.mentions.user.first() || message.member;
 
     var game = mentionedMember.presence.game;
     var status = mentionedMember.presence.status;

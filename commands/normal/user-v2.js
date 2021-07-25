@@ -26,11 +26,6 @@ if(userinfo.bot === "true") userinfo.bot === "Igen";
  .addField(`Neve:`, userMention.tag)
  .addField(`ID-je:`, userMention.id, true)
  .addField("Készítve:",userinfo.createdat, true)
- .addField("Bot?",userinfo.bot, true)
- .addField("2FA/2 lépcsős azonosítás bekapcsolva?",userinfo.mfa, true)
- .addField("Paid Account?",userinfo.pre, true)
- .addField("Presence",userinfo.presen, true)
- .addField("Ellenőrizve?",userinfo.verified, true)
  .setFooter(`${Client.user.username}`, Client.user.displayAvatarURL())
  .setTimestamp();
  message.channel.send(embed);
