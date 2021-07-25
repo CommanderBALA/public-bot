@@ -56,7 +56,7 @@ fs.readdirSync('./commands/').forEach(dir => {
 Client.on("ready", async () => {
     console.log(`${Client.user.username} is Online!`)
 
-    Client.user.setActivity("TESZT", {type: "CUSTOM_STATUS"})
+    Client.user.setActivity("TESZT")
 });
 
 Client.on("message", async message => {
