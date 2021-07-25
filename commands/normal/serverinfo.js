@@ -94,6 +94,6 @@ module.exports.run = async (Client, message, args, prefix) => {
 }
 
 module.exports.help = {
-    name: "serverinfo",
-    aliases: ['server-info', 'server']
+    name: "szerver",
+    aliases: ['szerver-infó', 'szerverinfó']
 }
