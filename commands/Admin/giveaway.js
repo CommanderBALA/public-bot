@@ -9,13 +9,13 @@ module.exports.run = async (Client, message, args, prefix) => { // thats for my 
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return channel.reply("You don't have permission to use this command!");
 
     // if no time said send this
-    if(!args[0]) return message.channel.send(`**How long does the giveaway need to be?**`)
+    if(!args[0]) return message.channel.send(`**Mennyi ideig tartson a nyereményjáték?**`)
     
     // =giveaway 1h 1 tshirt / if the time doesn't end with h /s /d /m  send this 
     if(!args[0].endsWith("s")&&!args[0].endsWith("h")&&!args[0].endsWith("d")&&!args[0].endsWith("m")) return message.channel.send(`**How long does the giveaway need to be?**`)
     
     // if the time said isnt a number
-    if(isNaN(args[0][0])) return message.channel.send(`**How long does the giveaway need to be?**`)
+    if(isNaN(args[0][0])) return message.channel.send(`**Mennyi ideig tartson a nyereményjáték?**`)
 
     // winner count 
     let winnerCount = args[1]
@@ -24,10 +24,10 @@ module.exports.run = async (Client, message, args, prefix) => { // thats for my 
     let prize = args.slice(2).join(" ")
     
     // if no amount of winner said
-    if(!args[1]) return message.channel.send(`**How many people can win?**`)
+    if(!args[1]) return message.channel.send(`**Hány nyertes legyen?**`)
     
     // if no prize said
-    if(!args[2]) return message.channel.send(`**What is the prize for the giveaway?**`)
+    if(!args[2]) return message.channel.send(`**Mi legyen a nyeremény?**`)
     
     // deleting the msg u send then...
     message.delete()
@@ -132,17 +132,17 @@ module.exports.run = async (Client, message, args, prefix) => { // thats for my 
             // creating the winner embed
             var embed = new discord.MessageEmbed()
              .setColor("#d98a23")
-             .setTitle("🎉 **GIVEAWAY ENDS** 🎉")
+             .setTitle("🎉 **VÉGE A NYEREMÉNYJÁTÉKNAK!** 🎉")
              .setDescription(`---------------------------------
 
              **${prize}**
 
-             **Winners:**
+             **Nyertes(ek):**
              ${response}
-             **Giveaway Hosted By: ** ${message.author}`)
+             **A nyereményjátékot indító: ** ${message.author}`)
             msg.edit(embed) // it will edit the embed 
     
-            message.channel.send(`**Congratulations:**\n${response}You've won... **${prize}**.\n${msg.url}`) // send a msg with the winner people
+            message.channel.send(`**Gratulálunk:**\n${response} Megnyerted a... **${prize}**.\n${msg.url}`) // send a msg with the winner people
         }
         
         // setting the giveaway time
