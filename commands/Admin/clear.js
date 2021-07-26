@@ -33,7 +33,7 @@ module.exports.run = async (Client, message, args, prefix) => {
  message.channel.bulkDelete(deleteAmount, true);
 
  // sends a msg when the msgs are deleted
- message.reply(`**Sikeresen** kitöröltem **${deleteAmount}** üzenetet.`)
+ message.reply(`**Sikeresen** kitöröltem **${deleteAmount}** üzenetet.`).then(msg => msg.delete({timeout: "2000"}))
  }
  
 
