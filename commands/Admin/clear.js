@@ -5,10 +5,10 @@ module.exports.run = async (Client, message, args, prefix) => {
 
      // check if the person has perm.
      if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.reply('Nem törölhetsz üzeneteket!').then(msg => msg.delete({timeout: "2000"}));
-
+    message.delete();
  // if he didnt say how much msgs he wanna delete (e.g. =clear )
  if (!args[0]) {
-     return message.reply(`Please enter a amount between 1 to 100`) // of he didnt provide a number to delete send this
+     return message.reply(`Adj meg egy számot 1 és 100 között!`) // of he didnt provide a number to delete send this
  }
  
  // defining the delete amount
@@ -23,7 +23,7 @@ module.exports.run = async (Client, message, args, prefix) => {
 
 
     // (e.g. =clear blala ) if someone didn't say a number to delete it will send this!
-     if(isNaN(args[0])) return message.channel.send('Yo mate say a number to delete messages!')
+     if(isNaN(args[0])) return message.channel.send('Számot írj!')
     
      // else if the args is not higher then 100 just set the deleted msgs to args 
      deleteAmount = parseInt(args[0]);
@@ -33,7 +33,7 @@ module.exports.run = async (Client, message, args, prefix) => {
  message.channel.bulkDelete(deleteAmount, true);
 
  // sends a msg when the msgs are deleted
- message.reply(`**Successfully** Deleted ***${deleteAmount}*** Messages.`)
+ message.reply(`**Sikeresen** kitöröltem **${deleteAmount}** üzenetet.`)
  }
  
 
@@ -41,5 +41,5 @@ module.exports.run = async (Client, message, args, prefix) => {
 
 module.exports.help = {
     name: `clear`,
-    aliases: ['purge', 'delete'] // if someone typed (e.g. =purge 10 or =delete 10) it will do the same as =clear
+    aliases: ['purge'] // if someone typed (e.g. =purge 10 or =delete 10) it will do the same as =clear
 };
