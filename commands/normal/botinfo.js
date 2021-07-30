@@ -12,7 +12,7 @@ module.exports.run = async (Client, message, args, prefix) => {
         `**Felhasználónév:** ${Client.user.username}`, 
         `**Tag:** ${Client.user.tag}`,
         `**ID:** ${Client.user.id}`,
-        `**Bot készítése:** ${moment(Client.user.createdAt).format("YYYY-MM-DD [-] HH:mm")}`,
+        `**Bot készítése:** ${moment(Client.user.createdAt).format("YYYY-MM-DD [**-**] HH:mm")}`,
         `**Tulajdonos:** C𝙤𝙢𝙢𝙖𝙣𝙙𝙚𝙧𝘽𝘼𝙇𝘼#0950`, 
         '\u200b'
     ])
