@@ -5,9 +5,9 @@ module.exports.run = async (Client, message, args, prefix) => {
     if(!message.content.startsWith(prefix)) return;
     message.delete();
 
-    const categoryID = message.member.guild.channels.cache.find(c => c.name == "TICKETS")
+    const categoryID = message.member.guild.channels.cache.find(c => c.name == "TICKET")
 
-    if(!categoryID) return message.channel.send('Nem találok TICKETS -nevű kategóriát :( ')
+    if(!categoryID) return message.channel.send('Nem találok TICKET -nevű kategóriát :( ')
 
     var userName = message.author.username;
     

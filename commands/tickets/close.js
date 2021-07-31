@@ -4,7 +4,7 @@ module.exports.run = async (Client, message, args, prefix) => {
 
     if(!message.content.startsWith(prefix)) return;
 
-    const categoryID = message.member.guild.channels.cache.find(c => c.name == "TICKETS")
+    const categoryID = message.member.guild.channels.cache.find(c => c.name == "TICKET")
     
     if(!categoryID) return;
 
