@@ -9,7 +9,7 @@ module.exports.run = async (Client, message, args, prefix) => { // thats for my 
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return channel.reply("You don't have permission to use this command!");
 
     // if no time said send this
-    if(!args[0]) return message.channel.send(`**Mennyi ideig tartson a nyereményjáték?**`)
+    if(!args[0]) return message.channel.send(`**Használd: ${prefix}giveaway [időtartam] [nyertesek száma] [nyeremény megnevezése]**\n\n**Időtartamok:**\n*- s --- X másodperc*\n*- h --- X óra*\n*- d --- X nap*\n*- m --- X hét*\n**A betűk elé egy számot kell írni (pl: 100s) és csak egy érték adhatő meg:** vagy *másodperc* vagy *óra* vagy *nap* vagy *hét*!`)
     
     // =giveaway 1h 1 tshirt / if the time doesn't end with h /s /d /m  send this 
     if(!args[0].endsWith("s")&&!args[0].endsWith("h")&&!args[0].endsWith("d")&&!args[0].endsWith("m")) return message.channel.send(`**How long does the giveaway need to be?**`)
