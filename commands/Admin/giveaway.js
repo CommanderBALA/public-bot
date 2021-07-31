@@ -41,7 +41,7 @@ module.exports.run = async (Client, message, args, prefix) => { // thats for my 
      **Giveaway Winners: **${winnerCount}
      **Giveaway Ends: **${args[0]}
      **Giveaway Hosted By: **${message.author}`)
-     .setTimestamp(`${Date.now()+ms(args[0] - "s" && - "h" && - "d" && - "m" )}`)
+     .setTimestamp(`${Date.now()+ms(args[0])}`)
      .setAuthor('Lejárat: ')
      .setColor("#d98a23")
      
