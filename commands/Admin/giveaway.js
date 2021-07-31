@@ -142,7 +142,7 @@ module.exports.run = async (Client, message, args, prefix) => { // thats for my 
              **A nyereményjátékot indító: ** ${message.author}`)
             msg.edit(embed) // it will edit the embed 
     
-            message.channel.send(`**Gratulálunk:**\n${response} Megnyerted a... **${prize}**.\n${msg.url}`) // send a msg with the winner people
+            message.channel.send(`**Gratulálunk:**\n${response}Megnyerted a... **${prize}**.\n${msg.url}`) // send a msg with the winner people
         }
         
         // setting the giveaway time
