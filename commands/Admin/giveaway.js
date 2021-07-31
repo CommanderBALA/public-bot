@@ -35,14 +35,14 @@ module.exports.run = async (Client, message, args, prefix) => { // thats for my 
     // creating the giveaway embed
     var botEmbed = new discord.MessageEmbed()
      .setTitle("🎉 **GIVEAWAY** 🎉")
-     .setDescription(`
-     React with 🎉 to enter!
+     .setDescription(`React with 🎉 to enter!
 
      **Giveaway Prize: **${prize}
      **Giveaway Winners: **${winnerCount}
      **Giveaway Ends: **${args[0]}
      **Giveaway Hosted By: **${message.author}`)
-     .setTimestamp(`Ends on ${Date.now()+ms(args[0])}`)
+     .setTimestamp(`${Date.now()+ms(args[0])}`)
+     .setAuthor('Lejárat: ')
      .setColor("#d98a23")
      
     // sending the giveaway embed
