@@ -64,7 +64,7 @@ module.exports.run = async (Client, message, args, prefix) => {
               **Indító: **${message.author}`)
             msg.edit(non)
 
-            return message.channel.send(`Senki nem jelentkezett a nyereményjátékra :( ! :(\n${msg.url}`)
+            return message.channel.send(`Senki nem jelentkezett a nyereményjátékra! :( \n${msg.url}`)
         }
 
         if(peopleReacted.length < winnerCount) {
