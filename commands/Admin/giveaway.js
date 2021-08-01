@@ -1,67 +1,52 @@
-const discord = require('discord.js'); // connecting to discord.js modules
-const ms = require('ms'); // requiring the ms package
+const discord = require('discord.js');
+const ms = require('ms');
 
-module.exports.run = async (Client, message, args, prefix) => { // thats for my cmd handler
+module.exports.run = async (Client, message, args, prefix) => {
 
-    if(!message.content.startsWith(prefix)) return; // it makes sure that your cmd starts with ur prefix
+    if(!message.content.startsWith(prefix)) return;
 
-    // setting the perm that only peoplw with manage msgs can use this cmd, and it also sends that msg
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return channel.reply("You don't have permission to use this command!");
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return channel.reply("Nincs jogosultságod használni ezt a parancsot!");
 
-    // if no time said send this
     if(!args[0]) return message.channel.send(`**Használd: ${prefix}giveaway [időtartam] [nyertesek száma] [nyeremény megnevezése]**\n\n**Időtartamok:**\n*- s --- X másodperc*\n*- h --- X óra*\n*- d --- X nap*\n*- m --- X hét*\n**A betűk elé egy számot kell írni (pl: 100s) és csak egy érték adhatő meg:** vagy *másodperc* vagy *óra* vagy *nap* vagy *hét*!`)
     
-    // =giveaway 1h 1 tshirt / if the time doesn't end with h /s /d /m  send this 
     if(!args[0].endsWith("s")&&!args[0].endsWith("h")&&!args[0].endsWith("d")&&!args[0].endsWith("m")) return message.channel.send(`**How long does the giveaway need to be?**`)
     
-    // if the time said isnt a number
     if(isNaN(args[0][0])) return message.channel.send(`**Mennyi ideig tartson a nyereményjáték?**`)
 
-    // winner count 
     let winnerCount = args[1]
     
-    // getting the whole prize
     let prize = args.slice(2).join(" ")
     
-    // if no amount of winner said
-    if(!args[1]) return message.channel.send(`**Hány nyertes legyen?**`)
+    if(!args[1]) return message.channel.send(`**Nem adtad meg a nyertesek szánát és a nyereményt!**`)
     
-    // if no prize said
-    if(!args[2]) return message.channel.send(`**Mi legyen a nyeremény?**`)
+    if(!args[2]) return message.channel.send(`**Nem adtad meg a nyereményt!**`)
     
-    // deleting the msg u send then...
     message.delete()
     
-    // creating the giveaway embed
     var botEmbed = new discord.MessageEmbed()
-     .setTitle("🎉 **GIVEAWAY** 🎉")
-     .setDescription(`React with 🎉 to enter!
+     .setTitle("🎉 **Nyereményjáték** 🎉")
+     .setDescription(`Reagálj a 🎉 -val hogy jelentkezz a játékra!
 
-     **Giveaway Prize: **${prize}
-     **Giveaway Winners: **${winnerCount}
-     **Giveaway Ends: **${args[0]}
-     **Giveaway Hosted By: **${message.author}`)
+     **Nyeremény: **${prize}
+     **Nyertesek száma: **${winnerCount}
+     **Nyereményjáték hossza: **${args[0]}
+     **Indító **${message.author}`)
      .setTimestamp(`${Date.now()+ms(args[0])}`)
      .setAuthor('Lejárat: ')
      .setColor("#d98a23")
      
-    // sending the giveaway embed
     var msg = await message.channel.send(botEmbed)
     
-    // the bot with that emoji once it sends the embed
     msg.react('🎉')
 
-    // setting the timeout of the giveaway
     setTimeout(function () {
 
         var random = 0;
         var winners = [];
         var inList = false;
     
-        // getting all people who reacted
         var peopleReacted = msg.reactions.cache.get("🎉").users.cache.array();
 
-        // removing the bot from reaction
         for (let i = 0; i < peopleReacted.length; i++) {
 
             if(peopleReacted[i].id == Client.user.id){
@@ -70,40 +55,36 @@ module.exports.run = async (Client, message, args, prefix) => { // thats for my 
             }
         }
 
-        // if no people entered the giveaway send this
         if(peopleReacted.length == 0) {
             var non = new discord.MessageEmbed()
              .setColor("#ff0000")
-             .setTitle("🎉 **GIVEAWAY ENDS** 🎉")
-             .setDescription(`There are no winners, because no one participated!
+             .setTitle("🎉 **VÉGE A NYEREMÉNYJÁTÉKNAK!** 🎉")
+             .setDescription(`Nincs nyertes! :(
              
-              **Giveaway Hosted By: **${message.author}`)
+              **Indító: **${message.author}`)
             msg.edit(non)
 
-            return message.channel.send(`There are no winners, because no one practicipated! :(\n${msg.url}`)
+            return message.channel.send(`Senki nem jelentkezett a nyereményjátékra :( ! :(\n${msg.url}`)
         }
 
-        // if the winner count is higher then the members who joined the giveaway
         if(peopleReacted.length < winnerCount) {
             var non = new discord.MessageEmbed()
              .setColor("#ff0000")
-             .setTitle("🎉 **GIVEAWAY ENDS** 🎉")
-             .setDescription(`There are no winners, because no one participated!
+             .setTitle("🎉 **VÉGE A NYEREMÉNYJÁTÉKNAK!** 🎉")
+             .setDescription(`Nem jelentkezett elég ember!
              
-              **Giveaway Hosted By: **${message.author}`)
+              **Indító: **${message.author}`)
             msg.edit(non)
 
-            return message.channel.send(`There are no winners, because no one practicipated! :(\n${msg.url}`)
+            return message.channel.send(`Kevesebb a jelentkező mint a nyertesek száma! :(\n${msg.url}`)
         }
 
-        // choosing someone randomly 
         for (let y = 0; y < winnerCount; y++) {
 
             inList = false;
 
             random = Math.floor(Math.random() * peopleReacted.length);
 
-            // if this person already return
             for (let o = 0; o < winners.length; o++) {
 
                 if(winners[o] == peopleReacted[random]){
@@ -113,23 +94,17 @@ module.exports.run = async (Client, message, args, prefix) => { // thats for my 
                 }
             }
 
-
-            // if not, list him in the winners
             if(!inList){
                 winners.push(peopleReacted[random]);
             }
         }
 
-        // getting the winner respond
         var response = ``
 
-        // getting all the winners
         for (let y = 0; y < winners.length; y++) {
 
-            // setting the winners in the embed
             response += `${winners[y]}\n`
                
-            // creating the winner embed
             var embed = new discord.MessageEmbed()
              .setColor("#d98a23")
              .setTitle("🎉 **VÉGE A NYEREMÉNYJÁTÉKNAK!** 🎉")
@@ -140,16 +115,15 @@ module.exports.run = async (Client, message, args, prefix) => { // thats for my 
              **Nyertes(ek):**
              ${response}
              **A nyereményjátékot indító: ** ${message.author}`)
-            msg.edit(embed) // it will edit the embed 
+            msg.edit(embed)
     
-            message.channel.send(`**Gratulálunk:**\n${response}Megnyerted a... **${prize}**.\n${msg.url}`) // send a msg with the winner people
+            message.channel.send(`**Gratulálunk:**\n${response}Megnyerted a... **${prize} -t!**.\n${msg.url}`)
         }
         
-        // setting the giveaway time
     }, ms(args[0]));
 }
 
 module.exports.help = {
     name: "giveaway",
-    aliases: ["g-start", 'giveaway-start']
+    aliases: ["g-start", 'giveaway-start', "gw"]
 }
