@@ -6,6 +6,7 @@ module.exports.run = async (Client, message, args, prefix) => {
     message.delete();
 
     const categoryID = message.member.guild.channels.cache.find(c => c.name == "TICKET")
+    const logcsatorna = message.member.guild.channels.cache.find(c => c.name == "ticket-log")
 
     if(!categoryID) return message.channel.send('Nem találok TICKET -nevű kategóriát :( ')
 
@@ -26,6 +27,15 @@ module.exports.run = async (Client, message, args, prefix) => {
     });
 
     if(ticketexist) return;
+
+    var logEmbed = new discord.MessageEmbed()
+    .setTitle('Ticket nyitás!')
+    .setColor('GREEN')
+    .setDescription(userName + 'Ticketet nyitott!')
+    .setTimestamp()
+    .setAuthor('Nyitás időpontja: ')
+
+    logcsatorna.send(logEmbed);
 
     message.guild.channels.create(userName.toLowerCase() + "-" + userDiscriminator, {type: 'text'}).then(
         (createdChannel) => {
