@@ -14,15 +14,17 @@ module.exports.run = async (Client, message, args, prefix) => {
     //if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
 
     if(message.channel.parentID == categoryID){
-
-        var logEmbed = new discord.MessageEmbed()
-    .setTitle('Ticket zárás!')
-    .setColor('RED')
-    .setDescription(userName + '  Bezárta a Ticketét!')
-    .setTimestamp()
-    logcsatorna.send(logEmbed);
     
         message.channel.delete();
+
+        if(!logcsatorna) return;
+
+        var logEmbed = new discord.MessageEmbed()
+        .setTitle('Ticket zárás!')
+        .setColor('RED')
+        .setDescription(userName + '  Bezárta a Ticketét!')
+        .setTimestamp()
+        logcsatorna.send(logEmbed);
     
     } else {
         return;

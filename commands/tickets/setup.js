@@ -6,11 +6,11 @@ module.exports.run = async (bot, message, args, prefix) =>{
   const categoryID = message.member.guild.channels.cache.find(c => c.name == "TICKET")
   const van1 = message.member.guild.channels.cache.find(c => c.name == "ticket-log")
   const van2 = message.member.guild.channels.cache.find(c => c.name == "ticket-info")
+  if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply('Nincs jogosultságod hogy setupold a ticket-et!').then(msg => msg.delete({timeout: "2000"}));
 
 
     message.delete();
     if(!args[0]){
-    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply('Nincs jogosultságod hogy setupold a ticket-et!').then(msg => msg.delete({timeout: "2000"}));
     if(categoryID) return message.reply("Van már **TICKET** kategória!")
     await message.channel.send('A **TICKET** kategória sikeresen létrehozva! ✅ ').then(msg=>msg.delete({timeout: "3000"}))
     await message.author.send(`A **TICKET** kategória sikeresen létrehozva! ✅ *(Szerver: ${message.guild.name})* `)
@@ -23,7 +23,6 @@ module.exports.run = async (bot, message, args, prefix) =>{
     }
 
     if(args[0] === "log"){
-      if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply('Nincs jogosultságod hogy setupold a ticket-et!').then(msg => msg.delete({timeout: "2000"}));
       if(van1) return message.reply('Van már log csatorna!')
       message.guild.channels.create('ticket-log', {type: 'text'}).then(
         (createdChannel) => {
