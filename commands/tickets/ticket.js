@@ -28,13 +28,14 @@ module.exports.run = async (Client, message, args, prefix) => {
 
     if(ticketexist) return;
 
-    var logEmbed = new discord.MessageEmbed()
+    if(logcsatorna){
+        var logEmbed = new discord.MessageEmbed()
     .setTitle('Ticket nyitás!')
     .setColor('GREEN')
     .setDescription(userName + '  Ticketet nyitott!')
     .setTimestamp()
-
     logcsatorna.send(logEmbed);
+    }
 
     message.guild.channels.create(userName.toLowerCase() + "-" + userDiscriminator, {type: 'text'}).then(
         (createdChannel) => {
@@ -63,6 +64,7 @@ module.exports.run = async (Client, message, args, prefix) => {
                     settedParent.send(ticketEmbed)
                     settedParent.send('**(@everyone)**')
                 }
+                
             ).catch(err => {
                 return console.log(err)
             });
