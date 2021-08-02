@@ -58,7 +58,7 @@ module.exports.run = async (bot, message, args, prefix) =>{
                   (settedParent) => {
                       settedParent.updateOverwrite(message.guild.roles.cache.find(x => x.name === '@everyone'),{
                           SEND_MESSAGES: false,
-                          VIEW_CHANNEL: false
+                          VIEW_CHANNEL: true
                       });
                       var infoEmbed = new Discord.MessageEmbed()
                       .setTitle(`Ticket-Infó`)
