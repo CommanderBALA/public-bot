@@ -31,7 +31,7 @@ module.exports.run = async (Client, message, args, prefix) => {
     var logEmbed = new discord.MessageEmbed()
     .setTitle('Ticket nyitás!')
     .setColor('GREEN')
-    .setDescription(userName + 'Ticketet nyitott!')
+    .setDescription(userName + ' Ticketet nyitott!')
     .setTimestamp()
     .setAuthor('Nyitás időpontja: ')
 
