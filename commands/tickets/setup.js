@@ -63,10 +63,10 @@ module.exports.run = async (bot, message, args, prefix) =>{
                       });
                       var infoEmbed = new Discord.MessageEmbed()
                       .setTitle(`Ticket-Infó`)
-                      .setDescription(`Ticket használata stb...`)
+                      .setColor('#099515')
                       .addField('-ticket','Ticket nyitása (egyszerre csak 1-et lehet)')
                       .addField('-close','Ticket bezárása')
-                      .addField('Mit nem ajánlott','Feleslegesen ticketet nyitogatni')
+                      .addField('Mit nem ajánlott?','Feleslegesen ticketet nyitogatni')
                       .setTimestamp()
                       settedParent.send(infoEmbed)
                       settedParent.send('**(@everyone)**')
