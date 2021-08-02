@@ -5,6 +5,7 @@ const Discord = require('discord.js');
 module.exports.run = async (bot, message, args, prefix) =>{
   const categoryID = message.member.guild.channels.cache.find(c => c.name == "TICKET")
   const van1 = message.member.guild.channels.cache.find(c => c.name == "ticket-log")
+  const van2 = message.member.guild.channels.cache.find(c => c.name == "ticket-info")
 
 
     message.delete();
@@ -51,8 +52,8 @@ module.exports.run = async (bot, message, args, prefix) =>{
 
     if(args[0] === "info"){
         if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply('Nincs jogosultságod hogy setupold a ticket-et!').then(msg => msg.delete({timeout: "2000"}));
-        if(van1) return message.reply('Van már infó csatorna!')
-        message.guild.channels.create('ticket-infó', {type: 'text'}).then(
+        if(van2) return message.reply('Van már infó csatorna!')
+        message.guild.channels.create('ticket-info', {type: 'text'}).then(
           (createdChannel) => {
               createdChannel.setParent(categoryID).then(
                   (settedParent) => {
