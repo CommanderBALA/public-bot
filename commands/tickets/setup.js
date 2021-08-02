@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args, prefix) =>{
     }
 
     if(args[0] === "log"){
-      message.channel.send('XXDD')
+      message.channel.send('XXDD');
     }
 
 }
