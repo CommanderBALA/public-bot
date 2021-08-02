@@ -47,8 +47,38 @@ module.exports.run = async (bot, message, args, prefix) =>{
     ).catch(err => {
         return console.log(err)
     });
-    }
+}
 
+    if(args[0] === "info"){
+        if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply('Nincs jogosultságod hogy setupold a ticket-et!').then(msg => msg.delete({timeout: "2000"}));
+        if(van1) return message.reply('Van már infó csatorna!')
+        message.guild.channels.create('ticket-infó', {type: 'text'}).then(
+          (createdChannel) => {
+              createdChannel.setParent(categoryID).then(
+                  (settedParent) => {
+                      settedParent.updateOverwrite(message.guild.roles.cache.find(x => x.name === '@everyone'),{
+                          SEND_MESSAGES: false,
+                          VIEW_CHANNEL: false
+                      });
+                      var infoEmbed = new Discord.MessageEmbed()
+                      .setTitle(`Ticket-Infó`)
+                      .setDescription(`Ticket használata stb...`)
+                      .addField('-ticket','Ticket nyitása (egyszerre csak 1-et lehet)')
+                      .addField('-close','Ticket bezárása')
+                      .addField('Mit nem ajánlott','Feleslegesen ticketet nyitogatni')
+                      .setTimestamp()
+                      settedParent.send(infoEmbed)
+                      settedParent.send('**(@everyone)**')
+                  }
+              ).catch(err => {
+                  return console.log(err)
+              });
+          }
+      ).catch(err => {
+          return console.log(err)
+      });
+    }
+    
 }
 
 module.exports.help = {
