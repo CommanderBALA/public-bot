@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args, prefix) =>{
                         VIEW_CHANNEL: false
                     });
 
-                    var logEmbed = new discord.MessageEmbed()
+                    var logEmbed = new Discord.MessageEmbed()
                     .setTitle(`Ticket-log`)
                     .setDescription(`A bot itt fogja logolni ha valaki nyit vagy zár egy ticketet. A csatorna nevét nem ajánlott megváltoztatni mert akkor nem fog működni :( )`)
                     .setTimestamp()
