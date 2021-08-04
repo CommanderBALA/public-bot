@@ -7,9 +7,9 @@ module.exports.run = async (bot, message, args, prefix) =>{
   const van1 = message.member.guild.channels.cache.find(c => c.name == "ticket-log")
   const van2 = message.member.guild.channels.cache.find(c => c.name == "ticket-info")
   if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply('Nincs jogosultságod hogy setupold a ticket-et!').then(msg => msg.delete({timeout: "2000"}));
+  message.delete();
 
 
-    message.delete();
     if(!args[0]){
     if(categoryID) return message.reply("Van már **TICKET** kategória!")
     await message.channel.send('A **TICKET** kategória sikeresen létrehozva! ✅ ').then(msg=>msg.delete({timeout: "3000"}))
@@ -82,29 +82,39 @@ module.exports.run = async (bot, message, args, prefix) =>{
     if(args[0] === 'törlés'){
         message.reply('amennyiben szeretnéd törölni a ticketes csatornákat akkor írd be: -tsetup t-igen !')
         if(args[0] === 't-igen'){
+
             if(!categoryID && !van1 && !van2){
+                
                 message.channel.send('Nem találtam Ticket-es csatornákat!')
             }
 
             if(categoryID){
+
                 categoryID.delete();
-            }
-            if(!categoryID){
+
+            } else if(!categoryID){
                 message.channel.send('*Nem találtam TICKET kategóriát*')
             }
+            
             if(van1){
+
                 van1.delete();
-            }
-            if(!van1){
+
+            } else if(!van1){
+
                 message.channel.send('*Nem találtam Log csatornát*')
             }
+            
             if(van2){
+
                 van2.delete();
-            }
-            if(!van2){
+
+            } else if(!van2){
+
                 message.channel.send('*Nem találtam Infó csatornát*')
-            }
-            await message.channel.send('**Kitöröltem a ticketes csatornákat!**')
+            }                    
+
+            message.channel.send('**Kitöröltem a Ticket-es csatornákat!**')
         }
     }
     
