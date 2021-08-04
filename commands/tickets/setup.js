@@ -80,10 +80,10 @@ module.exports.run = async (bot, message, args, prefix) =>{
     }
 
     if(args[0] === 'törlés'){
-        message.reply('Ha szeretnéd hogy töröljem az összes Ticket -es csatornát írd be: -tsetup törlés igen')
+        message.reply('Ha szeretnéd hogy töröljem az összes Ticket -es csatornát írd be: -tsetup t igen')
     }
 
-    if(args[0] === 'törlés' && args[1] === 'igen'){
+    if(args[0] === 't' && args[1] === 'igen'){
  
             if(!categoryID && !van1 && !van2){
 
