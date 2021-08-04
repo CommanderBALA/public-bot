@@ -80,8 +80,8 @@ module.exports.run = async (bot, message, args, prefix) =>{
     }
 
     if(args[0] === 'delete'){
-        message.reply('amennyiben szeretnéd törölni a ticketes csatornákat akkor írd be: -tsetup delete igen !')
-        if(args[1] === 'igen'){
+        message.reply('amennyiben szeretnéd törölni a ticketes csatornákat akkor írd be: -tsetup d igen !')
+        if(args[0] === 'd' && args[1] === 'igen'){
             if(categoryID){
                 categoryID.delete();
             }
