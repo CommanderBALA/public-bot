@@ -80,7 +80,11 @@ module.exports.run = async (bot, message, args, prefix) =>{
     }
 
     if(args[0] === 'törlés'){
+        message.reply('Ha szeretnéd hogy töröljem az összes Ticket -es csatornát írd be: -tsetup törlés igen')
+    }
 
+    if(args[0] === 'törlés' && args[1] === 'igen'){
+ 
             if(!categoryID && !van1 && !van2){
 
                 return message.channel.send('Nem találtam Ticket-es csatornákat!')
