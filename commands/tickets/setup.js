@@ -83,7 +83,7 @@ module.exports.run = async (bot, message, args, prefix) =>{
 
             if(!categoryID && !van1 && !van2){
 
-                message.channel.send('Nem találtam Ticket-es csatornákat!')
+                return message.channel.send('Nem találtam Ticket-es csatornákat!')
             }
 
             if(categoryID){
