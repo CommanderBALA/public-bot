@@ -78,6 +78,22 @@ module.exports.run = async (bot, message, args, prefix) =>{
           return console.log(err)
       });
     }
+
+    if(args[0] === 'delete'){
+        message.reply('amennyiben szeretnéd törölni a ticketes csatornákat akkor írd be: -tsetup delete igen !')
+        if(args[1] === 'igen'){
+            if(categoryID){
+                categoryID.delete();
+            }
+            if(van1){
+                van1.delete();
+            }
+            if(van2){
+                van2.delete();
+            }
+            await message.channel.send('Kitöröltem a ticketes csatornákat!')
+        }
+    }
     
 }
 
