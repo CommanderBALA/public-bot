@@ -80,8 +80,6 @@ module.exports.run = async (bot, message, args, prefix) =>{
     }
 
     if(args[0] === 'törlés'){
-        message.reply('amennyiben szeretnéd törölni a ticketes csatornákat akkor írd be: -tsetup t-igen !')
-        if(args[0] === 'igen'){
 
             if(!categoryID && !van1 && !van2){
 
@@ -116,8 +114,6 @@ module.exports.run = async (bot, message, args, prefix) =>{
 
             message.channel.send('**Kitöröltem a Ticket-es csatornákat!**')
         }
-    }
-    
 }
 
 module.exports.help = {
