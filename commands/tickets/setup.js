@@ -80,18 +80,31 @@ module.exports.run = async (bot, message, args, prefix) =>{
     }
 
     if(args[0] === 'törlés'){
-        message.reply('amennyiben szeretnéd törölni a ticketes csatornákat akkor írd be: -tsetup d igen !')
+        message.reply('amennyiben szeretnéd törölni a ticketes csatornákat akkor írd be: -tsetup t-igen !')
         if(args[0] === 't-igen'){
+            if(!categoryID && !van1 && !van2){
+                message.channel.send('Nem találtam Ticket-es csatornákat!')
+            }
+
             if(categoryID){
                 categoryID.delete();
+            }
+            if(!categoryID){
+                message.channel.send('*Nem találtam TICKET kategóriát*')
             }
             if(van1){
                 van1.delete();
             }
+            if(!van1){
+                message.channel.send('*Nem találtam Log csatornát*')
+            }
             if(van2){
                 van2.delete();
             }
-            await message.channel.send('Kitöröltem a ticketes csatornákat!')
+            if(!van2){
+                message.channel.send('*Nem találtam Infó csatornát*')
+            }
+            await message.channel.send('**Kitöröltem a ticketes csatornákat!**')
         }
     }
     
