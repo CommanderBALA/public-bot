@@ -27,7 +27,6 @@ module.exports.run = async (Client, message, args, prefix) => { // for my cmd ha
                 
                 var embed = new Discord.MessageEmbed()
                 .setDescription(message.content)
-                .setAuthor(message.author.user.username, message.author.user.displayAvatarURL())
                 .setTimestamp()
 
                 channel.send(embed);
