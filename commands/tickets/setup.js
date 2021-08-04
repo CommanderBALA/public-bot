@@ -79,9 +79,9 @@ module.exports.run = async (bot, message, args, prefix) =>{
       });
     }
 
-    if(args[0] === 'delete'){
+    if(args[0] === 'törlés'){
         message.reply('amennyiben szeretnéd törölni a ticketes csatornákat akkor írd be: -tsetup d igen !')
-        if(args[0] === 'd' && args[1] === 'igen'){
+        if(args[0] === 't-igen'){
             if(categoryID){
                 categoryID.delete();
             }
