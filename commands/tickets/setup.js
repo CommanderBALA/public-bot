@@ -87,36 +87,53 @@ module.exports.run = async (bot, message, args, prefix) =>{
  
             if(!categoryID && !van1 && !van2){
 
-                return message.channel.send('Nem találtam Ticket-es csatornákat!')
+                var nemtalalt = new Discord.MessageEmbed()
+                .setTitle('! PROBLÉMA !')
+                .setDescription('Nem találtam **Ticket**-es csatornákat!')
+                .setColor('RED')
+                .setTimestamp()
+                return message.channel.send(nemtalalt)
             }
+
+            const osszes = 0;
+            const eredmeny = new Discord.MessageEmbed();
+            eredmeny.setTitle('Törlés sikeres!')
+            eredmeny.setColor('GREEN')
 
             if(categoryID){
 
                 categoryID.delete();
+                osszes += 1;
 
             } else if(!categoryID){
-                message.channel.send('*Nem találtam TICKET kategóriát*')
+
+                eredmeny.addField('Nem találtam TICKET kategóriát (TICKET)', 'Vagy nem volt ilyen kategória vagy át lett nevezve!')
             }
             
             if(van1){
 
                 van1.delete();
+                osszes += 1;
 
             } else if(!van1){
 
-                message.channel.send('*Nem találtam Log csatornát*')
+                eredmeny.addField('Nem találtam LOG csatornát (ticket-log)', 'Vagy nem volt ilyen csatorna vagy át lett nevezve!')
             }
             
             if(van2){
 
                 van2.delete();
+                osszes += 1;
 
             } else if(!van2){
 
-                message.channel.send('*Nem találtam Infó csatornát*')
-            }                    
+                eredmeny.addField('Nem találtam INFÓ csatornát (ticket-info)','Vagy nem volt ilyen csatorna vagy át lett nevezve!')
+            }   
+            
+            eredmeny.addField('Sikeresen kitöröltem a ticket -es csatornákat!','összesen 3/' + osszes + ' -t tudtam törölni!')
+            eredmeny.setTimestamp()
 
-            message.channel.send('**Kitöröltem a Ticket-es csatornákat!**')
+            message.channel.send(eredmeny);
         }
 }
 
