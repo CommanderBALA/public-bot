@@ -29,6 +29,8 @@ module.exports.run = async (Client, message, args, prefix) => { // for my cmd ha
                 .setDescription(message.content)
                 .setAuthor(message.author.user.username, message.author.user.displayAvatarURL())
                 .setTimestamp()
+
+                channel.send(embed);
                 await message.react('😀'); // react with this once the msg is there 
                 message.channel.send(`Its working! go to ${channel} to check your message out!!`) // send this
                 q2.stop();
