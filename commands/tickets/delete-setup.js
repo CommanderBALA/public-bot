@@ -26,21 +26,31 @@ if(args[0] === 't' && args[1] === 'igen'){
         if(categoryID){
             categoryID.delete();
             osszes += 1;
-        } else if(!categoryID){
+
+
+        } 
+
+        if(!categoryID){
             eredmeny.addField('Nem találtam TICKET kategóriát (TICKET)', 'Vagy nem volt ilyen kategória vagy át lett nevezve!')
+
+
         }
         
         if(van1){
             van1.delete();
             osszes += 1;
-        } else if(!van1){
+        } 
+        
+        if(!van1){
             eredmeny.addField('Nem találtam LOG csatornát (ticket-log)', 'Vagy nem volt ilyen csatorna vagy át lett nevezve!')
         }
         
         if(van2){
             van2.delete();
             osszes += 1;
-        } else if(!van2){
+        }
+        
+        if(!van2){
             eredmeny.addField('Nem találtam INFÓ csatornát (ticket-info)','Vagy nem volt ilyen csatorna vagy át lett nevezve');
         }   
 
