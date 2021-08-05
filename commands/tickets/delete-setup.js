@@ -7,10 +7,10 @@ module.exports.run = async (Client, message, args, prefix) => {
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply('Nincs jogosultságod hogy setupold a ticket-et!').then(msg => msg.delete({timeout: "2000"}))
     message.delete();
 
-if(args[0] === 'törlés'){
+if(!args[0]){
     message.reply('Ha szeretnéd hogy töröljem az összes Ticket -es csatornát írd be: -tsetup t igen')
 }
-if(args[0] === 't' && args[1] === 'igen'){
+if(args[0] === 'igen'){
         if(!categoryID && !van1 && !van2){
             var nemtalalt = new Discord.MessageEmbed()
             .setTitle('! PROBLÉMA !')
@@ -95,6 +95,6 @@ if(args[0] === 't' && args[1] === 'igen'){
 }
 
 module.exports.help = {
-    name: 'tsetup',
+    name: 'tsetuptörlés',
     aliases: ['ticketsetup']
 }
