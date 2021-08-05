@@ -8,10 +8,10 @@ module.exports.run = async (Client, message, args, prefix) => {
     message.delete();
 
 if(!args[0]){
-    message.reply('Ha szeretnéd hogy töröljem az összes Ticket -es csatornát írd be: -tsetup t igen')
+    message.reply('Ha szeretnéd hogy töröljem a **Ticket setup**ot, írd be: `-tsetuptörlés igen`')
 }
 if(args[0] === 'igen'){
-        if(!categoryID && !van1 && !van2){
+        if(!categoryID && !log && !info){
             var nemtalalt = new Discord.MessageEmbed()
             .setTitle('! PROBLÉMA !')
             .setDescription('Nem találtam **Ticket**-es csatornákat!')
@@ -24,11 +24,11 @@ if(args[0] === 'igen'){
         log.delete();
         info.delete();
 
-        const eredmeny = new Discord.MessageEmbed();
-        eredmeny.setTitle('Törlés sikeres!')
-        eredmeny.setColor('GREEN')              
-        eredmeny.addField('Sikeresen kitöröltem a ticket -es csatornákat!','✅')
-        eredmeny.setTimestamp()
+        var eredmeny = new Discord.MessageEmbed()
+        .setTitle('Törlés sikeres!')
+        .setColor('GREEN')              
+        .addField('Sikeresen kitöröltem a ticket -es csatornákat!','✅')
+        .setTimestamp()
         message.channel.send(eredmeny);
     }
 }
