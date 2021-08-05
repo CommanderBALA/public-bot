@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 
 module.exports.run = async (Client, message, args, prefix) => {
     const categoryID = message.member.guild.channels.cache.find(c => c.name == "TICKET")
-    const van1 = message.member.guild.channels.cache.find(c => c.name == "ticket-log")
-    const van2 = message.member.guild.channels.cache.find(c => c.name == "ticket-info")
+    const log = message.member.guild.channels.cache.find(c => c.name == "ticket-log")
+    const info = message.member.guild.channels.cache.find(c => c.name == "ticket-info")
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply('Nincs jogosultságod hogy setupold a ticket-et!').then(msg => msg.delete({timeout: "2000"}))
     message.delete();
 
@@ -19,76 +19,15 @@ if(args[0] === 'igen'){
             .setTimestamp()
             return message.channel.send(nemtalalt)
         }
-        const osszes = 0;
+
+        categoryID.delete();
+        log.delete();
+        info.delete();
+
         const eredmeny = new Discord.MessageEmbed();
         eredmeny.setTitle('Törlés sikeres!')
-        eredmeny.setColor('GREEN')
-
-        if(categoryID){
-            categoryID.delete();
-            osszes += 1;
-
-            if(van1){
-                van1.delete();
-                osszes += 1;
-
-                if(van2){
-                    van2.delete();
-                    osszes += 1;
-                }
-                if(!van2){
-                    eredmeny.addField('Nem találtam INFÓ csatornát (ticket-info)','Vagy nem volt ilyen csatorna vagy át lett nevezve');
-                }
-            } 
-
-            if(!van1){
-                eredmeny.addField('Nem találtam LOG csatornát (ticket-log)', 'Vagy nem volt ilyen csatorna vagy át lett nevezve!')
-                
-                if(van2){
-                    van2.delete();
-                    osszes += 1;
-                }
-                if(!van2){
-                    eredmeny.addField('Nem találtam INFÓ csatornát (ticket-info)','Vagy nem volt ilyen csatorna vagy át lett nevezve');
-                }
-            }
-
-        } 
-
-        if(!categoryID){
-            eredmeny.addField('Nem találtam TICKET kategóriát (TICKET)', 'Vagy nem volt ilyen kategória vagy át lett nevezve!')
-
-            if(van1){
-                van1.delete();
-                osszes += 1;
-
-                if(van2){
-                    van2.delete();
-                    osszes += 1;
-                }
-
-                if(!van2){
-                    eredmeny.addField('Nem találtam INFÓ csatornát (ticket-info)','Vagy nem volt ilyen csatorna vagy át lett nevezve');
-                }
-            } 
-
-            if(!van1){
-                eredmeny.addField('Nem találtam LOG csatornát (ticket-log)', 'Vagy nem volt ilyen csatorna vagy át lett nevezve!')
-                
-                if(van2){
-                    van2.delete();
-                    osszes += 1;
-                }
-
-                if(!van2){
-                    eredmeny.addField('Nem találtam INFÓ csatornát (ticket-info)','Vagy nem volt ilyen csatorna vagy át lett nevezve');
-            
-                }    
-            }
-
-        } 
-       
-        eredmeny.addField('Sikeresen kitöröltem a ticket -es csatornákat!','összesen 3/' + osszes + ' -t tudtam törölni!')
+        eredmeny.setColor('GREEN')              
+        eredmeny.addField('Sikeresen kitöröltem a ticket -es csatornákat!','✅')
         eredmeny.setTimestamp()
         message.channel.send(eredmeny);
     }
