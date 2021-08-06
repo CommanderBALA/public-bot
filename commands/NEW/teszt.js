@@ -9,7 +9,7 @@ module.exports.run = async (Client, message, args, prefix) => {
     }
 
     if(args[0]){
-        message.channel.send(`Teszt szöveg`).then(msg => msg.react(args[0]))
+        message.channel.send(`Teszt szöveg`).then(msg => msg.react(args[0], args[1]))
     }
     
 
