@@ -15,7 +15,7 @@ module.exports.run = async (Client, message, args, prefix) => {
     const embed = new discord.MessageEmbed()
     .setTitle("✅ Done!")
     .setDescription(`successfully changed ${user.tag}'s nickname to ${nickname}`)
-    .setColor('RANDOM')
+    .setColor('GREEN')
     .setTimestamp()
     message.channel.send(embed)
 }
