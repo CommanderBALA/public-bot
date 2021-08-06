@@ -34,4 +34,3 @@ module.exports.help = {
     name: 'pages',
     aliases: []
 }
-© 2021 GitHub, Inc.
