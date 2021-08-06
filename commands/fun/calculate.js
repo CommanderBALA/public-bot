@@ -7,7 +7,7 @@ module.exports.run = async (Client, message, args, prefix) => {
 
     var question = args.join(' ') // =calc 1 + 1
 
-    if(!question) return message.channel.send('please provide a maths equation')
+    if(!question) return message.channel.send('Írjál be rgy műveletet is!')
 
     let result;
     try {
@@ -15,11 +15,11 @@ module.exports.run = async (Client, message, args, prefix) => {
 
 
     } catch (e) {
-        return message.channel.send('please provide a valid equation') // =calc blblal so it will send this
+        return message.channel.send('Nem értelmezhető a művelet / átváltás!') // =calc blblal so it will send this
     }
 
 
-    return message.channel.send(`${question} = ${result}`)
+    return message.channel.send(`${question} = **${result}**`)
 
 }
 
