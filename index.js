@@ -1,4 +1,5 @@
 const Discord = require('discord.js')
+
 const Client = new Discord.Client({disableEveryone: true});
 const fs = require('fs');
 const prefix = ('-');
@@ -8,14 +9,14 @@ Client.commands = new Discord.Collection();
 
 // Welcome message 
 Client.on("guildMemberAdd", member => {
-    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'cool')
-    welcomeChannel.send (`Welcome! ${member}`)
+    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'üdvözlő')
+    welcomeChannel.send (`Köszöntün, ${member} a(z) **${member.guild.name}** szerveren!`)
 })
 
 // Bye Message
 Client.on("guildMemberRemove", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'cool')
-    welcomeChannel.send (`Goodbye! ${member}`)
+    welcomeChannel.send (`Goodbye! ${member.user.username}`)
 })
 
 
