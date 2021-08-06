@@ -1,4 +1,5 @@
 const discord = require('discord.js');
+const { arg } = require('mathjs');
 const Client = new discord.Client();
 const cooldown = new Set();
 
@@ -15,6 +16,7 @@ module.exports.run = async (Client, message, args, prefix) => {
     } else {
 
         message.guild.setName(args[0])
+        message.channel.send(`A szerver neve sikeresen megváltoztatva erre: ${args[0]}`)
 
         cooldown.add(message.author.id);
         setTimeout(() => {
