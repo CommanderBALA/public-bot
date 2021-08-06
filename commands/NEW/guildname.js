@@ -1,5 +1,4 @@
 const discord = require('discord.js');
-const { arg } = require('mathjs');
 const Client = new discord.Client();
 const cooldown = new Set();
 
