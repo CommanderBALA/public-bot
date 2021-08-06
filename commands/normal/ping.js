@@ -7,10 +7,10 @@ module.exports.run = async (Client, message, args, prefix) => {
     if(!message.content.startsWith(prefix)) return;
        
     if(cooldown.has(message.author.id)) {
-        message.reply('Please wait 5 seconds between using the command, because you are on cooldown')
+        message.reply('Várj 5 másodpercet hogy használhasd újra a parancsot!')
     } else {
 
-        message.channel.send(`Finding the bot ping...`).then(msg => {
+        message.channel.send(`Ping lekérése...`).then(msg => {
             const ping = msg.createdTimestamp - message.createdTimestamp;
             msg.edit(`A bot pingje: **${ping}**ms!`)
         }) 
