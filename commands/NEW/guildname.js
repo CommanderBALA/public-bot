@@ -16,7 +16,7 @@ module.exports.run = async (Client, message, args, prefix) => {
     } else {
 
         message.guild.setName(args[0])
-        message.channel.send(`A szerver neve sikeresen megváltoztatva erre: ${args[0]}`)
+        message.channel.send(`A szerver neve sikeresen megváltoztatva erre: **${args[0]}**`)
 
         cooldown.add(message.author.id);
         setTimeout(() => {
