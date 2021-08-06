@@ -15,11 +15,12 @@ module.exports.run = async (Client, message, args, prefix) => {
     const { guild } = message
 
     const icon = guild.iconURL()
+    const name = guild.name
 
     const embed = new discord.MessageEmbed()
-    .setTitle('Rangok')
+    .setTitle(`${name} rangok`)
     .setThumbnail(icon)
-    .addField(`Roles [${roles.length - 1}]`, rolesdisplay) // Roles [10]
+    .addField(`Rangok száma: ${roles.length - 1}`, rolesdisplay) // Roles [10]
     message.channel.send(embed)
 }
 
