@@ -3,7 +3,7 @@ const discord = require('discord.js')
 
 
 module.exports.run = async (Client, message, args, prefix) => {
-    if(!message.content.startsWith(prefix)) return; // this makes sure that the cmd starts with the prefix
+    if(!message.content.startsWith(prefix)) return;
 
     let user = message.mentions.users.first() || message.author;
 

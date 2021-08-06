@@ -24,6 +24,6 @@ module.exports.run = async (Client, message, args, prefix) => {
 }
 
 module.exports.help = {
-    name: `calculate`,
-    aliases: ["calc"]
+    name: `calc`,
+    aliases: []
 };
