@@ -6,9 +6,10 @@ module.exports.run = async (Client, message, args, prefix) => {
     .setTitle("HELP")
     .addField("Weboldal: \nhttps://commanderbala.github.io/kripton.github.io/html/commands.html", "Itt van a parancsok listája")
     .addField("Support szerver: \nhttps://discord.com/invite/44VAMDfpHY ", "Itt vannak a botról infók: frissitések leállások, stb...")
-    .addField("Bot behívása: Hamarosan...", "Itt tudod behívni a botot a szerveredre");
+    .addField("Bot behívása: Hamarosan...", "Itt tudod behívni a botot a szerveredre")
+    .setTimestamp();
 
-    message.channel.send(embed)
+    message.channel.send(embed);
 
 }
 
