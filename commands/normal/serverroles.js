@@ -19,7 +19,7 @@ module.exports.run = async (Client, message, args, prefix) => {
 
     const embed = new discord.MessageEmbed()
     .setTitle(`${name} rangok`)
-    .setColor('AQUA')
+    .setColor('#00FFFF')
     .setThumbnail(icon)
     .addField(`Rangok száma: ${roles.length - 1}`, rolesdisplay) // Roles [10]
     message.channel.send(embed)
