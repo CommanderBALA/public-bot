@@ -8,16 +8,16 @@ Client.aliases = new Discord.Collection();
 Client.commands = new Discord.Collection();
 
 // Welcome message 
-Client.on("guildMemberAdd", member => {
-    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'üdvözlő')
-    welcomeChannel.send (`Köszöntün, ${member} a(z) **${member.guild.name}** szerveren!`)
-})
+//Client.on("guildMemberAdd", member => {
+//    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'üdvözlő')
+//    welcomeChannel.send (`Köszöntün, ${member} a(z) **${member.guild.name}** szerveren!`)
+//})
 
 // Bye Message
-Client.on("guildMemberRemove", member => {
-    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'cool')
-    welcomeChannel.send (`Goodbye! ${member.user.username}`)
-})
+//Client.on("guildMemberRemove", member => {
+//    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'cool')
+//    welcomeChannel.send (`Goodbye! ${member.user.username}`)
+//})
 
 
 // Commands Handler 
