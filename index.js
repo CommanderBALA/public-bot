@@ -71,6 +71,7 @@ Client.on("message", async message => {
     let commands = Client.commands.get(cmd.slice(prefix.length)) || Client.commands.get(Client.aliases.get(cmd.slice(prefix.length)));
 
     if(commands) commands.run(Client, message, args, prefix);
+    
 })
 
 // Login To Discord with your app's Token
