@@ -6,7 +6,7 @@ module.exports.run = async (Client, message, args, prefix) => {
     if(!afkcsatorna) return message.reply(`Nem találtam ilyen nevű csatornát: \`${args[0]}\`! :x:`);
     if(afkcsatorna.type='text'||'category'||'news'||'store') return message.reply('Hangcsatornának a nevét add meg!')
     message.guild.setAFKChannel(afkcsatorna)
-    message.channel.send(`AFK csatorna sikeresen beállítva: ${afkcsatorna} ! Az AFK időkorlát **5 perc**`)
+    message.channel.send(`AFK csatorna sikeresen beállítva: ${afkcsatorna} ! Az AFK időkorlát **5 perc**`).then(delete({timeout: '3000'}));
 
 
 }
