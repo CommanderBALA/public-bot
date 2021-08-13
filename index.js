@@ -24,7 +24,7 @@ Canvas.loadImage("./img/bg.png").then(async (img) => {
 })
 
 Client.on('guildMemberAdd', async member =>{
-    const welcomeChannel = Client.channels.cache.find(c => c.name === 'belépők')
+    const welcomeChannel = Client.channels.cache.find(c => c.name === 'belépők');
     let canvas = welcomeCanvas;
     canvas.context.font = '42px sans-serif'
     canvas.context.textAling = 'centre';
