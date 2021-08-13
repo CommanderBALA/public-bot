@@ -3,27 +3,10 @@ const Discord = require('discord.js')
 const Client = new Discord.Client({disableEveryone: true});
 const fs = require('fs');
 const prefix = ('-');
-const fetch = require('node-fetch')
+
 
 
 Client.on('guildMemberAdd', async member => {
-
-    const background = 'https://cdn.discordapp.com/attachments/875633767438512128/875644365563895808/pngtree-horizontal-vector-halloween-banner-background-with-grunge-border-image_297712.png'
-    const avatar = member.user.displayAvatarURL({dynamic: false})
-    const title = member.user.username 
-    const sub = member.guild.memberCount
-    const color = 'FFFFFF'
-    const res = await fetch(`https://frenchnoodles.xyz/api/endpoints/welcomebanner?background=${background}&avatar=${avatar}&title=${title}&subtitle=${sub}&textcolor=${color}`,{
-        headers: {
-            'APIKEY': 'f8xftlruivhjdRn85zYJoSxBrDcDj2Pxu0Loa8'
-        }
-    })
-
-    const channelName = member.guild.channels.cache.find(c => c.name === 'belépők')
-    const wChannel = member.guild.channels.cache.get(channelName)
-    let Image = await res.buffer()
-    const WImage = new Discord.MessageAttachment(Image)
-    wChannel.send(WImage)
 })
 
 
