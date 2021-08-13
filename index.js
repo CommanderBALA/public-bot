@@ -7,6 +7,29 @@ const prefix = ('-');
 Client.aliases = new Discord.Collection();
 Client.commands = new Discord.Collection();
 
+
+Client.on("guildMemberAdd", async (member) => {
+
+    const background = 'https://cdn.discordapp.com/attachments/875633767438512128/875644365563895808/pngtree-horizontal-vector-halloween-banner-background-with-grunge-border-image_297712.png'
+    const avatar = member.user.displayAvatarURL({dynamic: false})
+    const title = member.user.username
+    const Member12 = member.guild.memberCount
+    const sub = `Member ${Member12}`
+    const color = 'FFFFFF'
+    const res = await fetch(`https://frenchnoodles.xyz/api/endpoints/welcomebanner?background=${background}&avatar=${avatar}&title=${title}&subtitle=${sub}&textcolor=${color}`, {
+        headers: {
+            'APIKEY': 'f8xftlruivhjdRn85zYJoSxBrDcDj2Pxu0Loa8'
+        }
+    })
+    
+    const welcomechannel = member.guild.channels.cache.find(c => c.name === 'belépők')
+    const Wchannel =  member.guild.channels.cache.get(welcomechannel)
+    let Image = await res.buffer()
+    const WImage = new Discord.MessageAttachment(Image)
+    Wchannel.send(`Welcome to the server ${member}`, WImage)
+
+})
+
 // Welcome message 
 //Client.on("guildMemberAdd", member => {
 //    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'üdvözlő')
