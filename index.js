@@ -3,21 +3,50 @@ const Discord = require('discord.js')
 const Client = new Discord.Client({disableEveryone: true});
 const fs = require('fs');
 const prefix = ('-');
+const Canvas = require('canvas')
 
 Client.aliases = new Discord.Collection();
 Client.commands = new Discord.Collection();
 
-// Welcome message 
-//Client.on("guildMemberAdd", member => {
-//    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'üdvözlő')
-//    welcomeChannel.send (`Köszöntün, ${member} a(z) **${member.guild.name}** szerveren!`)
-//})
+var welcomeCanvas = {};
+welcomeCanvas.create = Canvas.createCanvas(1024, 500)
+welcomeCanvas.context = Canvas.create.getContext('2d')
+welcomeCanvas.context.font = '72px sans-serif';
+welcomeCanvas.context.fileStyle = '#ffffff'
 
-// Bye Message
-//Client.on("guildMemberRemove", member => {
-//    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'cool')
-//    welcomeChannel.send (`Goodbye! ${member.user.username}`)
-//})
+Canvas.loadImage("./img/bg.png").then(async (img) => {
+    welcomeCanvas.context.drawImage(img, 0, 0, 1024, 500)
+    welcomeCanvas.context.fillText("welcome", 360, 360)
+    welcomeCanvas.context.beginPath();
+    welcomeCanvas.context.arc(512, 166, 128, 0, Math.PI * 2, true);
+    welcomeCanvas.context.stroke()
+    welcomeCanvas.context.fill()
+})
+
+Client.on('guildMemberAdd', async member =>{
+    const welcomeChannel = Client.channels.cache.find(c => c.name === 'Belépők')
+    let canvas = welcomeCanvas;
+    canvas.context.font = '42px sans-serif'
+    canvas.context.textAling = 'centre';
+    canvas.context.fillText(member.user.tag.toUpperCase(), 512, 410)
+    canvas.context.font = '32px sans-serif'
+    canvas.context.fillText(`A ${member.guild.memberCount}. ember vagy a szerveren!`, 512, 455)
+    canvas.context.beginPath()
+    canvas.context.arc(512, 166, 199, 0, Math.PI * 2, true)
+    canvas.context.closePath()
+    canvas.context.clip()
+    await Canvas.loadImage(member.user.displayAvatarURL({format: 'png', size: '1024'}))
+    .then(img => {
+        canvas.context.drawImage(img, 393, 47, 238, 238)
+    })
+    let atta = new Discord.MessageAttachment(canvas.create.toBuffer(), `welcome-${member.id}.png`)
+    try{
+        welcomeChannel.send(`:wave: Hello ${member}, welcome to ${member.guild.name}!`, atta)
+    }catch(error){
+        console.log('HIBA!!! - ' + error)
+    }
+})
+
 
 
 // Commands Handler 
