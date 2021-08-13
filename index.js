@@ -3,6 +3,7 @@ const Discord = require('discord.js')
 const Client = new Discord.Client({disableEveryone: true});
 const fs = require('fs');
 const prefix = ('-');
+const fetch = require('node-fetch')
 
 
 Client.on('guildMemberAdd', async member => {
