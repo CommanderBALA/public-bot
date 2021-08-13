@@ -2,40 +2,22 @@ const Discord = require('discord.js')
 
 const Client = new Discord.Client({disableEveryone: true});
 const fs = require('fs');
+const ultrax = require('ultrax')
 const prefix = ('-');
-const fetch = require('node-fetch')
+
 
 Client.aliases = new Discord.Collection();
 Client.commands = new Discord.Collection();
 
 
-Client.on("guildMemberAdd", async (member) => {
+// Welcome message
 
-    const background = 'https://cdn.discordapp.com/attachments/875633767438512128/875644365563895808/pngtree-horizontal-vector-halloween-banner-background-with-grunge-border-image_297712.png'
-    const avatar = member.user.displayAvatarURL({dynamic: false})
-    const title = member.user.username
-    const Member12 = member.guild.memberCount
-    const sub = `Member ${Member12}`
-    const color = 'FFFFFF'
-    const res = await fetch(`https://frenchnoodles.xyz/api/endpoints/welcomebanner?background=${background}&avatar=${avatar}&title=${title}&subtitle=${sub}&textcolor=${color}`, {
-        headers: {
-            'APIKEY': 'f8xftlruivhjdRn85zYJoSxBrDcDj2Pxu0Loa8'
-        }
-    })
-    
-    const welcomechannel = member.guild.channels.cache.find(c => c.name === 'belépők')
-    const Wchannel =  member.guild.channels.cache.get(welcomechannel)
-    let Image = await res.buffer()
-    const WImage = new Discord.MessageAttachment(Image)
-    Wchannel.send(`Welcome to the server ${member}`, WImage)
-
+Client.on("guildMemberAdd", member => {
+    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'üdvözlő')
+    welcomeChannel.send()
 })
 
-// Welcome message 
-//Client.on("guildMemberAdd", member => {
-//    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'üdvözlő')
-//    welcomeChannel.send (`Köszöntün, ${member} a(z) **${member.guild.name}** szerveren!`)
-//})
+Client.on('invite')
 
 // Bye Message
 //Client.on("guildMemberRemove", member => {
@@ -97,6 +79,15 @@ Client.on("message", async message => {
     if(commands) commands.run(Client, message, args, prefix);
     
 })
+
+
+Client.on("message", async(message) => {
+	if(message.content === "-dababy"){
+    	const daBaby = await ultrax.dababy(message.mentions.users.first()?.displayAvatarURL({ format: 'png' }) || message.author.displayAvatarURL({ format: 'png' 	   }));
+	return message.channel.send(daBaby);
+	}
+});
+
 
 // Login To Discord with your app's Token
 Client.login(process.env.token);
