@@ -2,7 +2,6 @@ const Discord = require('discord.js')
 
 const Client = new Discord.Client({disableEveryone: true});
 const fs = require('fs');
-const ultrax = require('ultrax')
 const prefix = ('-');
 
 
@@ -79,15 +78,6 @@ Client.on("message", async message => {
     if(commands) commands.run(Client, message, args, prefix);
     
 })
-
-
-Client.on("message", async(message) => {
-	if(message.content === "-dababy"){
-    	const daBaby = await ultrax.dababy(message.mentions.users.first()?.displayAvatarURL({ format: 'png' }) || message.author.displayAvatarURL({ format: 'png' 	   }));
-	return message.channel.send(daBaby);
-	}
-});
-
 
 // Login To Discord with your app's Token
 Client.login(process.env.token);
