@@ -5,7 +5,7 @@ const fs = require('fs');
 const prefix = ('-');
 
 
-Client.on('guildMemberAdd', member => {
+Client.on('guildMemberAdd', async member => {
 
     const background = 'https://cdn.discordapp.com/attachments/875633767438512128/875644365563895808/pngtree-horizontal-vector-halloween-banner-background-with-grunge-border-image_297712.png'
     const avatar = member.user.displayAvatarURL({dynamic: false})
