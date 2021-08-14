@@ -3,9 +3,6 @@ const Discord = require('discord.js')
 const Client = new Discord.Client({disableEveryone: true});
 const fs = require('fs');
 const prefix = ('-');
-const ultrax = require('ultrax')
-
-ultrax.inviteLogger(Client)
 
 Client.aliases = new Discord.Collection();
 Client.commands = new Discord.Collection();
