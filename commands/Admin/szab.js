@@ -4,7 +4,7 @@ const pagination = require('discord.js-pagination');
 module.exports.run = async (Client, message, prefix, args) => {
     if(!message.content.startsWith(prefix)) return;
 
-    await message.channel.send('')
+    await message.channel.send('.')
 
     const page1 = new discord.MessageEmbed()
     .setTitle('SZABÁLYZAT')
