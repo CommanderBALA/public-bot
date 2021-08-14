@@ -14,13 +14,14 @@ module.exports.run = async (Client, message, args, prefix) => {
         `**ID:** ${Client.user.id}`,
         `**Bot készítése:** ${moment(Client.user.createdAt).format("YYYY-MM-DD [**-**] HH:mm")}`,
         `**Tulajdonos:** C𝙤𝙢𝙢𝙖𝙣𝙙𝙚𝙧𝘽𝘼𝙇𝘼#0950`, 
+        `**Prefix:** -`,
         '\u200b'
     ])
     .addField(`**Statisztikák:**`,[
         `**Szerverek:** ${Client.guilds.cache.size}`,
         `**Felhasználók:** ${Client.users.cache.size}`,
-        `**Discord.js Verzió:** 12.5.1`,
-        `**Node.js Verzió:** 14.15.1`
+        `**Discord.js Verzió:** 12.5.1 - V12`,
+        `**Node.js Verzió:** v14.17.5`
     ])
     message.channel.send(botEmbed)
 }

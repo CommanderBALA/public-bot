@@ -3,18 +3,25 @@ const Discord = require('discord.js')
 const Client = new Discord.Client({disableEveryone: true});
 const fs = require('fs');
 const prefix = ('-');
+const ultrax = require('ultrax')
 
+ultrax.inviteLogger(Client)
 
 Client.aliases = new Discord.Collection();
 Client.commands = new Discord.Collection();
 
 
 // Welcome message
-
-Client.on("guildMemberAdd", member => {
+Client.on('inviteJoin', (member, invite, inviter) => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'üdvözlő')
-    welcomeChannel.send()
-})
+    const joinembed = new Discord.MessageEmbed()
+    .setTitle('Új Belépő!')
+    .setDescription(`Köszöntünk ${member.user} a(z) ${member.guild.name} szerveren!\nTe vagy a(z) **${member.guild.memberCount}.** felhasználó a szerveren\n:tada: :tada: :tada:\n${member.user.tag} joined using invite code ${invite.code} from ${inviter.tag}. Invite was used ${invite.uses} times since its creation.`)
+    .setImage(member.user.displayAvatarURL())
+    .setTimestamp()
+    .setFooter('Belépés időpontja')
+    welcomeChannel.send(joinembed)
+}) 
 
 // Bye Message
 //Client.on("guildMemberRemove", member => {
