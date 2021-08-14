@@ -21,10 +21,10 @@ module.exports.run = async (Client, message, args, prefix) => {
           member
 
             .ban({
-              reason: `Ki lett bannolva a szerverről ${message.author.name} által!`,
+              reason: `Ki lett bannolva a szerverről ${message.author} által!\n Indok: ${args.slice(0).join(" ")}`,
             })
-            .then(() => {
-              message.reply(`Sikeres bannolás!`);
+            .then( ban => {
+              ban.reply(`Sikeres bannolás!`);
             })
             .catch(err => {
               message.reply('Nem tudom kitiltani a felhasználót (indokok: magasabb a rangja mint a botnak, rendszergazda jogosultsága van, ő a tulajdonos, stb...)');
