@@ -12,7 +12,7 @@ Client.commands = new Discord.Collection();
 
 
 // Welcome message
-Client.on('inviteJoin', (member, invite, inviter) => {
+Client.on('guildMemberAdd', (member, invite, inviter) => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'üdvözlő')
     const joinembed = new Discord.MessageEmbed()
     .setTitle('Új Belépő!')
