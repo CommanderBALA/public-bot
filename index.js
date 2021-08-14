@@ -14,7 +14,7 @@ Client.on('guildMemberAdd', async member => {
     const joinembed = new Discord.MessageEmbed()
     .setTitle('Új Belépő!')
     .setDescription(`Köszöntünk ${member.user} a(z) ${member.guild.name} szerveren!\nTe vagy a(z) **${member.guild.memberCount}.** felhasználó a szerveren\n:tada: :tada: :tada:`)
-    .setThumbnail(member.user.displayAvatarURL())
+    .setThumbnail(member.user.displayAvatarURL({dynamic: '1024px'}))
     .setTimestamp()
     .setFooter('Belépés időpontja')
     welcomeChannel.send(joinembed);
