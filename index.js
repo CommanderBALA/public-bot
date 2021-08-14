@@ -9,8 +9,8 @@ Client.commands = new Discord.Collection();
 
 
 // Welcome message
-Client.on('guildMemberAdd',async member => {
-    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'üdvözlő')
+Client.on('guildMemberAdd', async member => {
+    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'belépők')
     const joinembed = new Discord.MessageEmbed()
     .setTitle('Új Belépő!')
     .setDescription(`Köszöntünk ${member.user} a(z) ${member.guild.name} szerveren!\nTe vagy a(z) **${member.guild.memberCount}.** felhasználó a szerveren\n:tada: :tada: :tada:`)
