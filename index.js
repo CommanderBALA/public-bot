@@ -16,8 +16,6 @@ Client.on("guildMemberAdd", member => {
     welcomeChannel.send()
 })
 
-Client.on('invite')
-
 // Bye Message
 //Client.on("guildMemberRemove", member => {
 //    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'cool')
