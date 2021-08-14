@@ -30,7 +30,7 @@ module.exports.run = async (Client, message, args, prefix) => {
             })
             .then(() => {
             // it will send this message once the person is kicked
-              message.reply(`Successfully kicked`);
+              message.reply(`Sikeres kirúgás!`);
             })
             // log err in the console
             .catch(err => {
