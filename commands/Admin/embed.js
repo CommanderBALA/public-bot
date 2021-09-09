@@ -1,43 +1,69 @@
-const Discord = require('discord.js'); // connecting to discord modules
+const Discord = require('discord.js');
 
 
-module.exports.run = async (Client, message, args, prefix) => { // for my cmd handler
-    if(!message.content.startsWith(prefix)) return; // its checking if the msg starts with the prefix
+module.exports.run = async (Client, message, args, prefix) => {
+    if(!message.content.startsWith(prefix)) return;
+
+        if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
+
+        let elköldöttembed = new Discord.MessageEmbed();
+
+        let küldö = message.author
+
+        let color = args[0];
+        let Title = args[1]
+        let Timestamp = args[2]
+        let Footer = args[3]
+        let szöveg = args.slice(4).join(" ");
+        
+
+        if(!args[0]){
+            message.reply('Nincs megadva Szín!')
+            return;
+        }
+        if(!args[1]){
+            message.reply('Nincs megadva Cím!')
+            return;
+        }
+        if(!args[2]){
+            message.reply('Nincs megadva hogy legyen-e Idő!')
+            return;
+        }
+        if(!args[3]){
+            message.reply('Nincs megadva hogy legyen-e Láb!')
+            return;
+        }
+        if(!args[4]){
+            message.reply('Nincs megadva Szöveg!')
+            return;
+        }
+
+        if(args[1] === 'nem'){
+            Title = " "
+        } else {
+            elköldöttembed.setTitle(args[1])
+        }
+
+        if(args[2] === 'nem'){
+            Timestamp = " "
+        } else if (args[2]==='igen'){
+            elköldöttembed.setTimestamp()
+        }
+
+        if(args[3] === 'nem'){
+            Footer = " "
+        } else if(args[3]==='igen') {
+            elköldöttembed.setFooter(`Üzenet író: ${küldö.tag}`, küldö.displayAvatarURL())
+        }
+
+        elköldöttembed.setColor(color)
+        elköldöttembed.setDescription(szöveg)
+
+        await message.channel.send(elköldöttembed);
 
 
+        
 
-    // only people with this perm can use this cmd
-        if(!message.member.hasPermission('MANAGE_MESSAGES')) return; 
-    if (message.content.toLowerCase() === '-embed'){ // if the msg is  = to _say
-        let filter = m => m.author.id === message.author.id; // filtering the person who send the msg
-        let q1 = new Discord.MessageCollector(message.channel, filter, { // it will send q1 in the same channel
-            max: 1
-        })
-        message.channel.send('Where do i send, please mention a channel!'); // it will send this msg just right after he type _say
-
-        q1.on('collect', async (message, col) => { // it will collect the msg 
-            let channel = message.mentions.channels.first(); // the channel that we gonna send in is the one choosed
-
-            message.channel.send('what message you want me to send there?') // q1 what is the actual the actual msg
-            q1.stop();
-            let q2 = new Discord.MessageCollector(message.channel, filter, { // filtering
-                max: 1
-            })
-            q2.on('collect', async (message, col) => { // collecting
-                
-                var embed = new Discord.MessageEmbed()
-                .setDescription(message.content)
-                .setTimestamp()
-
-                channel.send(embed);
-                await message.react('😀'); // react with this once the msg is there 
-                message.channel.send(`Its working! go to ${channel} to check your message out!!`) // send this
-                q2.stop();
-            })
-        })
-
-
-    }
 }
 
 

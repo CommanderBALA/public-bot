@@ -4,6 +4,8 @@ module.exports.run = async (Client, message, args, prefix) => {
 
   if(!message.content.startsWith(prefix)) return;
 
+  let reason = `Ki lett bannolva a szerverről ${message.author} által!\n Indok: ${args.slice(1).join(" ")}`
+
 
     if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply('Nem bannolhatsz embereket!').then(msg => msg.delete({timeout: "2000"}));
 
@@ -21,7 +23,7 @@ module.exports.run = async (Client, message, args, prefix) => {
           member
 
             .ban({
-              reason: `Ki lett bannolva a szerverről ${message.author} által!\n Indok: ${args.slice(0).join(" ")}`,
+              reason: reason,
             })
             .then( () => {
               message.reply(`Sikeres bannolás!`);

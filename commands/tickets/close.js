@@ -11,8 +11,6 @@ module.exports.run = async (Client, message, args, prefix) => {
     
     if(!categoryID) return;
 
-    //if(!message.member.hasPermission("MANAGE_CHANNELS")) return;
-
     if(message.channel.parentID == categoryID){
     
         message.channel.delete();

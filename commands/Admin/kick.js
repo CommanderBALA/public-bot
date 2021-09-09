@@ -4,11 +4,9 @@ module.exports.run = async (Client, message, args, prefix) => {
 
   if(!message.content.startsWith(prefix)) return;
 
+  let reason = `Ki lett rúgva a szerverről ${message.author} által!\n Indok: ${args.slice(1).join(" ")}`
 
-    // the perm. that the member need it to ban someone
-    if(!message.member.hasPermission('KICK_MEMBERS'))
-    // if someone dont hv perm it will send this message
-    message.channel.send("You don't have permission to use that command.");
+    if(!message.member.hasPermission('KICK_MEMBERS'))return message.channel.send("Nem rúghatsz ki embereket!").then(m => m.delete({timeout: '2000'}))
 
     else {
       if (!message.guild) return;
@@ -23,29 +21,22 @@ module.exports.run = async (Client, message, args, prefix) => {
   
           member
 
-          // kick code 
             .kick({
-                // the reason
-              reason: 'They were bad!',
+              reason: reason,
             })
             .then(() => {
-            // it will send this message once the person is kicked
               message.reply(`Sikeres kirúgás!`);
             })
-            // log err in the console
             .catch(err => {
-              // if the bot wasnt able to kick the member bcz he hv a higher role it will not kick him and if the bot dont hv to perm it will not kick him and send this messge
-              message.reply('I was unable to kick the member');
+              message.reply('Nem tudom kirúgni ezt az embert');
   
               console.error(err);
             });
         } else {
-          // if the member isnt in the server and u typed e.g. =kick @karimx it will send this message
-          message.reply("That user isn't in this guild!");
+          message.reply("Nem találok ilyen embert a szerveren!!");
         }
       } else {
-       // if u typed =kick without mentioning some1 it will send this message
-        message.reply("You didn't mention the user to kick!");
+        message.reply("Nincs megjelölve ember!");
       }
   };
 }

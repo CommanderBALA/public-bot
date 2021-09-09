@@ -10,6 +10,10 @@ if(!args[0]){
 
 if(args[0] == 'igen'){
     message.guild.channels.cache.forEach(channel => channel.delete());
+
+    let category1 = message.member.guild.channels.cache.find(c => c.name == "Információk")
+    let category2 = message.member.guild.channels.cache.find(c => c.name == "Közösség")
+    let category3 = message.member.guild.channels.cache.find(c => c.name == "Admin")
 }
 
 }

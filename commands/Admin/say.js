@@ -1,40 +1,35 @@
-const Discord = require('discord.js'); // connecting to discord modules
+const Discord = require('discord.js');
 
 
-module.exports.run = async (Client, message, args, prefix) => { // for my cmd handler
-    if(!message.content.startsWith(prefix)) return; // its checking if the msg starts with the prefix
+module.exports.run = async (Client, message, args, prefix) => {
+    if(!message.content.startsWith(prefix)) return;
 
 
-
-    // only people with this perm can use this cmd
         if(!message.member.hasPermission('MANAGE_MESSAGES')) return; 
-    if (message.content.toLowerCase() === '-say'){ // if the msg is  = to _say
-        let filter = m => m.author.id === message.author.id; // filtering the person who send the msg
-        let q1 = new Discord.MessageCollector(message.channel, filter, { // it will send q1 in the same channel
+    if (message.content.toLowerCase() === '--say'){
+        let filter = m => m.author.id === message.author.id;
+        let q1 = new Discord.MessageCollector(message.channel, filter, {
             max: 1
         })
-        message.channel.send('Where do i send, please mention a channel!'); // it will send this msg just right after he type _say
+        message.channel.send('Írd be melyik csatornára küldjem!');
 
-        q1.on('collect', async (message, col) => { // it will collect the msg 
-            let channel = message.mentions.channels.first(); // the channel that we gonna send in is the one choosed
+        q1.on('collect', async (message, col) => {
+            let channel = message.mentions.channels.first();
 
-            message.channel.send('what message you want me to send there?') // q1 what is the actual the actual msg
+            message.channel.send('Mi legyen az üzenet?')
             q1.stop();
-            let q2 = new Discord.MessageCollector(message.channel, filter, { // filtering
+            let q2 = new Discord.MessageCollector(message.channel, filter, {
                 max: 1
             })
-            q2.on('collect', async (message, col) => { // collecting
-                channel.send(message.content); // it will send the msg
-                await message.react('😀'); // react with this once the msg is there 
-                message.channel.send(`Its working! go to ${channel} to check your message out!!`) // send this
+            q2.on('collect', async (message, col) => {
+                channel.send(message.content);
+                await message.react('😀');
+                message.channel.send(`Sikeres üzenetküldés! Nézd meg ezen a csatornán hogy végbement-e: ${channel}!`)
                 q2.stop();
             })
         })
-
-
     }
 }
-
 
 module.exports.help = {
     name: "say",

@@ -19,14 +19,14 @@ module.exports.run = async (Client, message, args, prefix) => {
     .setColor("RED")
     .setThumbnail(Avatar)
     .addFields(
-        { name: "Jelentő ID: ", value: `${message.author.id}`, inline: true},
-        { name: "Jelentő Tag: ", value: `${message.author.tag}`, inline: true},
-        { name: "Jelentett ID: ", value: `${user.id}`, inline: true},
-        { name: "Jelentett Tag: ", value: `${user.tag}`, inline: true},
-        { name: "Indok", value: `${reason}`, inline: true}
+        { name: "Jelentő:", value: `${message.author}`, inline: true},
+        { name: "Jelentő ID:", value: `${message.author.id}`, inline: true},
+        { name: "Jelentett:", value: `${user}`, inline: false},
+        { name: "Jelentett ID:", value: `${user.id}`, inline: true},
+        { name: "Indok:", value: `${reason}`, inline: false}
     )
     Channel.send(embed)
-    message.channel.send('A jelentés sikeresen elküldve! 📨')
+    message.channel.send('A jelentés sikeresen elküldve! 📨').then(m => m.delete({timeout: '2500'}))
 
 }
 

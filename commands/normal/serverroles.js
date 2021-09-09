@@ -1,5 +1,4 @@
 const discord = require('discord.js');
-const { reducedPlanckConstantDependencies } = require('mathjs');
 
 module.exports.run = async (Client, message, args, prefix) => {
     if(!message.content.startsWith(prefix)) return
@@ -21,7 +20,7 @@ module.exports.run = async (Client, message, args, prefix) => {
     .setTitle(`${name} rangok`)
     .setColor('#00FFFF')
     .setThumbnail(icon)
-    .addField(`Rangok száma: ${roles.length - 1}`, rolesdisplay) // Roles [10]
+    .addField(`Rangok száma: ${roles.length - 1}`, `${rolesdisplay}`)
     message.channel.send(embed)
 }
 
